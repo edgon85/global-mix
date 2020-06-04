@@ -19,11 +19,22 @@
         text-transform: uppercase;
         color: $gray;
         font-weight: normal;
+        @media screen and (min-width: 700px) {
+          font-size: 40px;
+          line-height: 40px;
+        }
       }
       p {
         font-family: $font-secondary;
         color: $primary;
         font-size: 12px;
+        @media screen and (min-width: 700px) {
+          font-size: 18px;
+        }
+      }
+
+      @media screen and (min-width: 700px) {
+        padding-left: 105px;
       }
     }
 
@@ -57,9 +68,25 @@
           h2 {
             color: $white;
             font-family: $font-primary;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             padding-left: 20px;
-            // font-size: 20px;
+
+            br {
+              display: none;
+            }
+
+            @media screen and (min-width: 700px) {
+              font-size: 30px;
+              padding-left: 0px;
+              line-height: 40px;
+              br {
+                display: inline-block;
+              }
+            }
+          }
+          @media screen and (min-width: 700px) {
+            justify-content: flex-start;
+            padding-left: 105px;
           }
         }
       }
@@ -86,6 +113,36 @@
           vertical-align: top;
         }
       }
+
+      // para escritorio
+      @media screen and (min-width: 700px) {
+        grid-template-columns: 100px 1fr 1fr;
+        grid-template-rows: 100px 1fr 220px;
+        column-gap: 5px;
+        //   gap: 10px;
+        grid-template-areas:
+          'item1 item1 item3'
+          '. item2 item3'
+          '. item2 item4';
+
+        .projects__body-item2 {
+          img {
+            height: 100%;
+          }
+        }
+        .projects__body-item4 {
+          img {
+            height: 100%;
+            padding-top: 5px;
+          }
+        }
+        // .projects__body-item3 {
+        //   grid-area: item3;
+        //   img {
+        //     height: 100%;
+        //   }
+        // }
+      }
     }
 
     .projects__ver-mas {
@@ -102,6 +159,16 @@
         font-size: 12px;
         font-family: sans-serif;
         font-weight: 200;
+
+        @media screen and (min-width: 700px) {
+          font-size: 14px;
+          padding: 10px;
+        }
+      }
+
+      @media screen and (min-width: 700px) {
+        margin-top: 10px;
+        padding: 10px 0px 10px 115px;
       }
     }
   }
