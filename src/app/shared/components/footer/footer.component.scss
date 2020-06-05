@@ -1,0 +1,120 @@
+@import '../../../../variables.scss';
+.footer {
+  height: 454px;
+  background: url('../../../../assets/images/fondos/fondo-footer.jpg');
+  //   background-color: rgba(0, 15, 41, 0.73);
+  //   background-blend-mode: soft-light;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .contenido {
+    padding: 20px;
+    height: 100%;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr;
+    grid-template-areas:
+      'area1'
+      'area2'
+      'area3';
+
+    .links {
+      grid-area: area1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      @media screen and(min-width: 700px) {
+        // display: inline-block;
+        justify-content: center;
+      }
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        @media screen and(min-width: 700px) {
+          margin-bottom: 25px;
+          font-size: 16px;
+        }
+      }
+    }
+    .contacto {
+      grid-area: area2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      @media screen and(min-width: 700px) {
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: 10px;
+        // text-transform: uppercase;
+        @media screen and(min-width: 700px) {
+          margin-bottom: 25px;
+          font-size: 14px;
+        }
+      }
+
+      .social {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        a {
+          img {
+            width: 40px;
+          }
+          @media screen and(min-width: 700px) {
+            margin-right: 20px;
+          }
+        }
+        @media screen and(min-width: 700px) {
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    .subscribe {
+      grid-area: area3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .suscribirse {
+        button {
+          background: $primary;
+          border: none;
+          color: $white;
+          height: 20px;
+          padding: 0px 10px;
+        }
+      }
+
+      .logo {
+        width: 50px;
+        img {
+          width: 100%;
+          vertical-align: top;
+        }
+        @media screen and(min-width: 700px) {
+          width: 100px;
+        }
+      }
+
+      @media screen and(min-width: 700px) {
+        align-items: flex-start;
+      }
+    }
+
+    @media screen and(min-width: 700px) {
+      grid-template: 1fr / 1fr 1fr 1fr;
+      grid-template-areas: 'area1 area2 area3';
+    }
+  }
+}
