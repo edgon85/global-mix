@@ -43,7 +43,9 @@ const routes: Routes = [
       {
         path: 'cotizador',
         loadChildren: () =>
-          import('./pages/home/home.module').then((m) => m.HomeModule),
+          import('./pages/cotizacion/cotizacion.module').then(
+            (m) => m.CotizacionModule
+          ),
       },
       { path: '', redirectTo: '/inicio', pathMatch: 'full' },
       {
