@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  Departamento,
+  UserData,
+} from '../../../interfaces/departamentos.interface';
 
 @Component({
   selector: 'app-cotizador',
@@ -19,15 +24,39 @@ export class CotizadorComponent implements OnInit {
 
   subCategoryImage: string = '';
   subCategoryName: string = '';
+  metros3: number = 0;
 
-  formData: boolean = false;
+  formularioData: boolean = false;
 
   finishCotizar: boolean = false;
 
-  constructor() {}
+  formaMtsCubicos: FormGroup;
+  formaUserData: FormGroup;
+
+  datos: object = {
+    categoria: '',
+    subcaegoria: '',
+    nombre: '',
+    telefono: '',
+    departamento: '',
+    correo: '',
+  };
+
+  public departamento = Object.keys(Departamento).map((key) => ({
+    label: key,
+    key: Departamento[key],
+  }));
+
+  constructor(private fb: FormBuilder) {
+    this.inputMtsCubicos();
+    this.formUserData();
+  }
 
   ngOnInit() {}
 
+  /* ===================================== */
+  /* Seleccionar categoria */
+  /* ===================================== */
   selectCategory(category: string) {
     switch (category) {
       case 'casas':
@@ -61,6 +90,9 @@ export class CotizadorComponent implements OnInit {
     // console.log(`categoria => ${this.categoria}`);
   }
 
+  /* ===================================== */
+  /* Seleccionar sub categoria */
+  /* ===================================== */
   selectSubcategory(subcategory: string) {
     /*     console.log(`categoria => ${this.categoria}`);
     console.log(`subcategory => ${subcategory}`); */
@@ -114,10 +146,13 @@ export class CotizadorComponent implements OnInit {
         break;
     }
 
-    this.formData = false;
+    this.formularioData = false;
   }
 
-  backMainMenu() {
+  /* ===================================== */
+  /* boton para regresar a categorias*/
+  /* ===================================== */
+  buttonBackMainMenu() {
     this.category = true;
     this.casas = false;
     this.edificios = false;
@@ -127,21 +162,98 @@ export class CotizadorComponent implements OnInit {
     this.categoria = '';
   }
 
-  showForm() {
-    console.log(`categoria => ${this.categoria}`);
-    console.log(`sub Categoria => ${this.subcategoria}`);
+  /* ===================================== */
+  /* boton para regresar a categorias*/
+  /* ===================================== */
+  buttonShowForm() {
+    if (this.formaMtsCubicos.invalid) {
+      return Object.values(this.formaMtsCubicos.controls).forEach((control) => {
+        if (control instanceof FormGroup) {
+          Object.values(control.controls).forEach((resp) =>
+            resp.markAsTouched()
+          );
+        } else {
+          control.markAsTouched();
+        }
+      });
+    }
 
-    this.category = false;
-    this.subcategory = false;
+    if (this.formaMtsCubicos.valid) {
+      this.category = false;
+      this.subcategory = false;
+      this.formularioData = true;
 
-    this.formData = true;
+      this.metros3 = this.formaMtsCubicos.value.metrosCubicos;
+    }
   }
 
-  finishQuote() {
-    this.category = false;
-    this.subcategory = false;
-    this.formData = false;
+  /* ===================================== */
+  /* boton para finalizar*/
+  /* ===================================== */
+  buttonFinishQuote() {
+    if (this.formaUserData.invalid) {
+      return Object.values(this.formaUserData.controls).forEach((control) => {
+        if (control instanceof FormGroup) {
+          Object.values(control.controls).forEach((resp) =>
+            resp.markAsTouched()
+          );
+        } else {
+          control.markAsTouched();
+        }
+      });
+    }
 
-    this.finishCotizar = true;
+    if (this.formaUserData.valid) {
+      this.category = false;
+      this.subcategory = false;
+      this.formularioData = false;
+      this.finishCotizar = true;
+
+      const data: UserData = {
+        categoria: this.categoria,
+        subcaegoria: this.subcategoria,
+        nombre: this.formaUserData.value.nombre,
+        telefono: this.formaUserData.value.telefono,
+        departamento: this.formaUserData.value.departamento,
+        correo: this.formaUserData.value.correo,
+      };
+      console.log(data);
+    }
+  }
+
+  // <=================================================================> //
+  // Formulario de metros cubicos
+  // <=================================================================> //
+  inputMtsCubicos() {
+    this.formaMtsCubicos = this.fb.group({
+      metrosCubicos: ['', Validators.required],
+    });
+  }
+  // <=================================================================> //
+
+  // <=================================================================> //
+  // Formulario de datos de usuario
+  // <=================================================================> //
+  formUserData() {
+    this.formaUserData = this.fb.group({
+      nombre: ['', Validators.required],
+      telefono: ['', Validators.required],
+      departamento: ['', Validators.required],
+      correo: [''],
+    });
+  }
+  // <=================================================================> //
+
+  validarCampo(nombre: string) {
+    return (
+      this.formaMtsCubicos.get(nombre).invalid &&
+      this.formaMtsCubicos.get(nombre).touched
+    );
+  }
+  validarCampoUser(nombre: string) {
+    return (
+      this.formaUserData.get(nombre).invalid &&
+      this.formaUserData.get(nombre).touched
+    );
   }
 }

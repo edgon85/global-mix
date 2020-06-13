@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { BannerComponent } from './components/banner/banner.component';
@@ -13,7 +14,7 @@ import { CotizadorComponent } from './components/cotizador/cotizador.component';
     FooterComponent,
     CotizadorComponent,
   ],
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
     HeaderComponent,
     BannerComponent,

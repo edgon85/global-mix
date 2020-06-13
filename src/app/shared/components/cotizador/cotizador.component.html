@@ -26,9 +26,10 @@
             </div>
             <div class="title">
                 <p *ngIf="category">¿Qué tipo de proyecto deseas emprender?</p>
-                <p *ngIf="!category && !subcategory && !formData && !finishCotizar">¿Qué parte de tu proyecto necesitas
+                <p *ngIf="!category && !subcategory && !formularioData && !finishCotizar">¿Qué parte de tu proyecto
+                    necesitas
                     cotizar?</p>
-                <p *ngIf="formData">Necesitamos alguno de tus datos para ponernos en contacto contigo</p>
+                <p *ngIf="formularioData">Necesitamos alguno de tus datos para ponernos en contacto contigo</p>
             </div>
 
             <div class="cotizador__body-icons container" *ngIf="category">
@@ -225,34 +226,43 @@
                     <div class="">
                         <p>¿De cúantos metros cubicos es tu proyecto?</p>
                         <div class=" mb-3">
-                            <input type="number" class="form-control" placeholder="00" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                            <form [formGroup]="formaMtsCubicos">
+                                <input formControlName="metrosCubicos" type="number" class="" placeholder="00">
+                                <small *ngIf="validarCampo('metrosCubicos')" class="text-danger">* Campo es
+                                    requerido</small>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- form user -->
-            <div class="formulario container" *ngIf="formData">
-                <form class="container">
+            <div class="formulario container" *ngIf="formularioData">
+                <form [formGroup]="formaUserData" class="container">
                     <div class="form-row mb-5">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="*Nombre">
+                            <input formControlName="nombre" type="text" class="form-control" placeholder="*Nombre">
+                            <small *ngIf="validarCampoUser('nombre')" class="text-danger">Nombre es
+                                requerido</small>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="*Telefono">
+                            <input formControlName="telefono" type="text" class="form-control" placeholder="*Telefono">
+                            <small *ngIf="validarCampoUser('telefono')" class="text-danger">Teléfono es
+                                requerido</small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <select id="inputState" class="form-control">
-                                <option selected>*Departamento</option>
-                                <option>Quetzaltenango</option>
-                                <option>Guatemala</option>
+                            <select formControlName="departamento" name="departamento" class="form-control">
+                                <option *ngFor="let depto of departamento" [value]="depto.key">{{ depto.key }}
+                                </option>
                             </select>
+                            <small *ngIf="validarCampoUser('departamento')" class="text-danger">Departamento es
+                                requerido</small>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Correo electrónico">
+                            <input formControlName="correo" type="text" class="form-control"
+                                placeholder="Correo electrónico">
                         </div>
                     </div>
                 </form>
@@ -280,18 +290,20 @@
             <div class="container mt-5 mb-5">
                 <div class="buttons">
                     <!-- button back categories -->
-                    <button *ngIf="!category && !subcategory && !formData && !finishCotizar" (click)="backMainMenu()"
-                        class="btn btn-outline-primary">Anterior</button>
+                    <button *ngIf="!category && !subcategory && !formularioData && !finishCotizar"
+                        (click)="buttonBackMainMenu()" class="btn btn-outline-primary">Anterior</button>
                     <!-- button back sub categories -->
                     <button *ngIf="subcategory" (click)="selectCategory(categoria)"
                         class="btn btn-outline-primary">Anterior</button>
                     <!-- button next form metros cubicos -->
-                    <button *ngIf="subcategory" (click)="showForm()" class="btn btn-outline-primary">Siguiente</button>
+                    <button *ngIf="subcategory" (click)="buttonShowForm()"
+                        class="btn btn-outline-primary">Siguiente</button>
                     <!-- button back subcategories -->
-                    <button *ngIf="formData" (click)="selectSubcategory(subcategoria)"
+                    <button *ngIf="formularioData" (click)="selectSubcategory(subcategoria)"
                         class="btn btn-outline-primary">Anterior</button>
                     <!-- button back subcategories -->
-                    <button *ngIf="formData" (click)="finishQuote()" class="btn btn-outline-primary">Siguiente</button>
+                    <button *ngIf="formularioData" (click)="buttonFinishQuote()"
+                        class="btn btn-outline-primary">Siguiente</button>
                 </div>
 
                 <div *ngIf="!category" class="divider container"></div>
