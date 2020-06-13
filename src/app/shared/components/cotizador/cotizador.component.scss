@@ -1,5 +1,39 @@
 @import '../../../../variables.scss';
 
+@mixin my_icons {
+  width: 50px;
+  text-align: center;
+  cursor: pointer;
+  img {
+    width: 100%;
+    vertical-align: top;
+  }
+
+  h3 {
+    color: $primary;
+    font-size: 8px;
+    text-transform: uppercase;
+    @media screen and(min-width: 700px) {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and(min-width: 700px) {
+    width: 150px;
+  }
+}
+
+.divider {
+  height: 2px;
+  background: $secondary;
+  padding: 0px 15px;
+  margin-top: 20px;
+  @media screen and(min-width: 700px) {
+    padding: 0px 100px;
+    margin-top: 40px;
+  }
+}
+
 .cotizador {
   .cotizador__header {
     display: flex;
@@ -199,6 +233,174 @@
           margin-top: 40px;
         }
       }
+    }
+
+    .casas {
+      .nivel-1 {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'casas';
+        justify-content: center;
+        align-items: center;
+
+        .casas {
+          grid-area: casas;
+          margin: 0px auto;
+        }
+      }
+
+      .nivel-2 {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 'terraza columna cimiento zapata';
+
+        .terraza {
+          grid-area: terraza;
+          margin: 0px auto;
+        }
+        .columna {
+          grid-area: columna;
+          margin: 0px auto;
+        }
+        .cimiento {
+          grid-area: cimiento;
+          margin: 0px auto;
+        }
+        .zapata {
+          grid-area: zapata;
+          margin: 0px auto;
+        }
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .edificios {
+      .nivel-1 {
+        display: grid;
+        grid-template-rows: 1fr;
+        // grid-template-columns: 1fr;
+        grid-template-areas: 'edificio';
+        justify-content: center;
+        align-items: center;
+
+        .edificio {
+          grid-area: casas;
+          margin: 0px auto;
+        }
+      }
+
+      .nivel-2 {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'terraza cimiento piso_insustrial';
+
+        .terraza {
+          grid-area: terraza;
+          margin: 0px auto;
+        }
+        .cimiento {
+          grid-area: cimiento;
+          margin: 0px auto;
+        }
+        .piso-insustrial {
+          grid-area: piso_insustrial;
+          margin: 0px auto;
+        }
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .carreteras {
+      .nivel-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .puentes {
+      .nivel-1 {
+        display: grid;
+        grid-template-rows: 1fr;
+        // grid-template-columns: 1fr;
+        grid-template-areas: 'puente';
+        justify-content: center;
+        align-items: center;
+
+        .puente {
+          grid-area: puente;
+          margin: 0px auto;
+        }
+      }
+
+      .nivel-2 {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'muro cimiento losa';
+
+        .muro {
+          grid-area: muro;
+          margin: 0px auto;
+        }
+        .cimiento {
+          grid-area: cimiento;
+          margin: 0px auto;
+        }
+        .losa {
+          grid-area: losa;
+          margin: 0px auto;
+        }
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .bodegas {
+      .nivel-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .subcategorias {
+      .nivel-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon {
+        @include my_icons();
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
