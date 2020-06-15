@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
   Departamento,
   UserData,
 } from '../../../interfaces/departamentos.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cotizador',
@@ -33,6 +34,13 @@ export class CotizadorComponent implements OnInit {
   formaMtsCubicos: FormGroup;
   formaUserData: FormGroup;
 
+  @ViewChild('step1', { static: true }) step1: ElementRef;
+  @ViewChild('step2', { static: true }) step2: ElementRef;
+  @ViewChild('step3', { static: true }) step3: ElementRef;
+  @ViewChild('line1', { static: true }) line1: ElementRef;
+  @ViewChild('line2', { static: true }) line2: ElementRef;
+  @ViewChild('line3', { static: true }) line3: ElementRef;
+
   datos: object = {
     categoria: '',
     subcaegoria: '',
@@ -47,12 +55,22 @@ export class CotizadorComponent implements OnInit {
     key: Departamento[key],
   }));
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.inputMtsCubicos();
     this.formUserData();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.step2.nativeElement.classList.add('img-truck');
+    this.step3.nativeElement.classList.add('img-truck');
+
+    this.formaUserData.reset({
+      nombre: '',
+      correo: '',
+      telefono: '',
+      departamento: Departamento.quetzaltenango,
+    });
+  }
 
   /* ===================================== */
   /* Seleccionar categoria */
@@ -94,9 +112,6 @@ export class CotizadorComponent implements OnInit {
   /* Seleccionar sub categoria */
   /* ===================================== */
   selectSubcategory(subcategory: string) {
-    /*     console.log(`categoria => ${this.categoria}`);
-    console.log(`subcategory => ${subcategory}`); */
-
     const urlImageBase = 'assets/images/icons';
 
     switch (this.categoria) {
@@ -147,6 +162,9 @@ export class CotizadorComponent implements OnInit {
     }
 
     this.formularioData = false;
+    this.step1.nativeElement.classList.remove('img-truck');
+    this.step2.nativeElement.classList.add('img-truck');
+    this.line2.nativeElement.classList.remove('change-line');
   }
 
   /* ===================================== */
@@ -159,6 +177,7 @@ export class CotizadorComponent implements OnInit {
     this.carreteras = false;
     this.puentes = false;
     this.bodegas = false;
+    this.finishCotizar = false;
     this.categoria = '';
   }
 
@@ -179,6 +198,12 @@ export class CotizadorComponent implements OnInit {
     }
 
     if (this.formaMtsCubicos.valid) {
+      // this.element.nativeElement.classList.add("newclass");
+      // this.element.nativeElement.classList.remove("newclass")
+      this.step1.nativeElement.classList.add('img-truck');
+      this.step2.nativeElement.classList.remove('img-truck');
+      this.line2.nativeElement.classList.add('change-line');
+
       this.category = false;
       this.subcategory = false;
       this.formularioData = true;
@@ -204,6 +229,10 @@ export class CotizadorComponent implements OnInit {
     }
 
     if (this.formaUserData.valid) {
+      this.step2.nativeElement.classList.add('img-truck');
+      this.step3.nativeElement.classList.remove('img-truck');
+      this.line3.nativeElement.classList.add('change-line');
+
       this.category = false;
       this.subcategory = false;
       this.formularioData = false;
@@ -244,6 +273,9 @@ export class CotizadorComponent implements OnInit {
   }
   // <=================================================================> //
 
+  // <=================================================================> //
+  // <Validaciones> //
+  // <=================================================================> //
   validarCampo(nombre: string) {
     return (
       this.formaMtsCubicos.get(nombre).invalid &&
@@ -255,5 +287,34 @@ export class CotizadorComponent implements OnInit {
       this.formaUserData.get(nombre).invalid &&
       this.formaUserData.get(nombre).touched
     );
+  }
+  // <=================================================================> //
+
+  // <=================================================================> //
+  // Seguir explorando //
+  // <=================================================================> //
+
+  seguirExplorando() {
+    this.buttonBackMainMenu();
+
+    this.step1.nativeElement.classList.remove('img-truck');
+    this.step2.nativeElement.classList.add('img-truck');
+    this.step3.nativeElement.classList.add('img-truck');
+    this.line1.nativeElement.classList.add('change-line');
+    this.line2.nativeElement.classList.remove('change-line');
+    this.line3.nativeElement.classList.remove('change-line');
+
+    this.formaMtsCubicos.reset({
+      metrosCubicos: '',
+    });
+
+    this.formaUserData.reset({
+      nombre: '',
+      correo: '',
+      telefono: '',
+      departamento: Departamento.quetzaltenango,
+    });
+
+    this.router.navigateByUrl('/inicio');
   }
 }

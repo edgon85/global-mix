@@ -23,15 +23,44 @@
   }
 }
 
-.divider {
-  height: 2px;
-  background: $secondary;
-  padding: 0px 15px;
-  margin-top: 20px;
+@mixin inputs {
+  background-color: transparent;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 2px solid $primary;
+  font-family: $font-secondary;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+.container-divider {
+  .divider {
+    height: 2px;
+    background: $secondary;
+    // padding: 0px 15px;
+    margin-top: 20px;
+  }
   @media screen and(min-width: 700px) {
     padding: 0px 100px;
     margin-top: 40px;
   }
+}
+
+/* .add-image {
+  display: block !important;
+}
+
+.remove-image {
+  display: none;
+} */
+
+.img-truck {
+  display: none;
+}
+
+.change-line {
+  background: $primary !important;
 }
 
 .cotizador {
@@ -95,6 +124,7 @@
           width: 50%;
           vertical-align: top;
           margin: 0px auto;
+          //   display: none;
           @media screen and(min-width: 700px) {
             width: 25%;
           }
@@ -112,9 +142,10 @@
           flex-direction: column;
           justify-content: flex-end;
 
-          img {
-            display: none;
-          }
+          //   img {
+          //     display: none;
+          //   }
+
           .line {
             background: $secondary;
           }
@@ -124,9 +155,9 @@
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          img {
-            display: none;
-          }
+          //   img {
+          //     display: none;
+          //   }
           .line {
             //    margin-top: auto;
             background: $secondary;
@@ -393,14 +424,76 @@
         align-items: center;
       }
 
+      .nivel-2 {
+        // border: 1px solid red;
+        padding: 20px 0px;
+        text-align: center;
+        p {
+          color: $primary;
+        }
+        .input {
+          @include inputs();
+        }
+        ::placeholder {
+          color: $gray;
+        }
+      }
+
       .icon {
         @include my_icons();
+      }
+    }
+
+    .formulario {
+      .input {
+        width: 100%;
+        text-align: left !important;
+        @include inputs();
+
+        @media screen and(min-width: 700px) {
+          width: 80%;
+        }
+      }
+      @media screen and(min-width: 700px) {
+        padding: 20px 120px;
+      }
+    }
+
+    .finalizar {
+      .contenido {
+        text-align: center;
+        h3 {
+          color: $gray;
+        }
+        p {
+          color: $gray;
+        }
+
+        .seguir-explorando {
+          text-align: center;
+          cursor: pointer;
+          span {
+            color: $primary;
+            font-size: 12px;
+            @media screen and(min-width: 700px) {
+              font-size: 16px;
+            }
+          }
+        }
+
+        @media screen and(min-width: 700px) {
+          padding: 100px 300px 0px;
+        }
       }
     }
 
     .buttons {
       display: flex;
       justify-content: space-between;
+
+      @media screen and(min-width: 700px) {
+        padding: 20px 120px;
+      }
     }
   }
 }

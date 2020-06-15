@@ -12,16 +12,17 @@
         <div class="cotizador__body-head">
             <div class="truck-container">
                 <div class="step1">
-                    <img src="assets/images/icons/icon-truck.png" alt="">
-                    <div class="line"></div>
+                    <!-- <img #step1 class="img-truck" src="assets/images/icons/icon-truck.png" alt=""> -->
+                    <img #step1 src="assets/images/icons/icon-truck.png" alt="">
+                    <div #line1 class="line"></div>
                 </div>
                 <div class="step2">
-                    <img src="assets/images/icons/icon-truck.png" alt="">
-                    <div class="line"></div>
+                    <img #step2 src="assets/images/icons/icon-truck.png" alt="">
+                    <div #line2 class="line"></div>
                 </div>
                 <div class="step3">
-                    <img src="assets/images/icons/icon-truck.png" alt="">
-                    <div class="line"></div>
+                    <img #step3 src="assets/images/icons/icon-truck.png" alt="">
+                    <div #line3 class="line"></div>
                 </div>
             </div>
             <div class="title">
@@ -223,11 +224,12 @@
                         <h3>{{ subCategoryName }}</h3>
                     </div>
 
-                    <div class="">
+                    <div class="nivel-2">
                         <p>¿De cúantos metros cubicos es tu proyecto?</p>
                         <div class=" mb-3">
                             <form [formGroup]="formaMtsCubicos">
-                                <input formControlName="metrosCubicos" type="number" class="" placeholder="00">
+                                <input formControlName="metrosCubicos" type="number" class="input" placeholder="00">
+                                <br />
                                 <small *ngIf="validarCampo('metrosCubicos')" class="text-danger">* Campo es
                                     requerido</small>
                             </form>
@@ -238,47 +240,50 @@
 
             <!-- form user -->
             <div class="formulario container" *ngIf="formularioData">
-                <form [formGroup]="formaUserData" class="container">
-                    <div class="form-row mb-5">
-                        <div class="col">
-                            <input formControlName="nombre" type="text" class="form-control" placeholder="*Nombre">
+                <form [formGroup]="formaUserData" class="">
+                    <div class="form-row mb-3 mb-md-5">
+                        <div class="col-12 col-md-6 mb-2 ">
+                            <input formControlName="nombre" type="text" class="input" placeholder="Nombre">
+                            <br />
                             <small *ngIf="validarCampoUser('nombre')" class="text-danger">Nombre es
                                 requerido</small>
                         </div>
-                        <div class="col">
-                            <input formControlName="telefono" type="text" class="form-control" placeholder="*Telefono">
+                        <div class="col-12 col-md-6">
+                            <input formControlName="telefono" type="text" class="input" placeholder="Telefono">
+                            <br />
                             <small *ngIf="validarCampoUser('telefono')" class="text-danger">Teléfono es
                                 requerido</small>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col">
-                            <select formControlName="departamento" name="departamento" class="form-control">
+                        <div class="col-12 col-md-6 mb-2">
+                            <select formControlName="departamento" name="departamento" class="input">
                                 <option *ngFor="let depto of departamento" [value]="depto.key">{{ depto.key }}
                                 </option>
                             </select>
+                            <br />
                             <small *ngIf="validarCampoUser('departamento')" class="text-danger">Departamento es
                                 requerido</small>
                         </div>
-                        <div class="col">
-                            <input formControlName="correo" type="text" class="form-control"
-                                placeholder="Correo electrónico">
+                        <div class="col-12 col-md-6">
+                            <input formControlName="correo" type="email" class="input" placeholder="Correo electrónico">
                         </div>
                     </div>
                 </form>
             </div>
 
             <!-- finalizar cotizador -->
-            <div class="finish" *ngIf="finishCotizar">
+            <div class="finalizar" *ngIf="finishCotizar">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="contenido col-12">
                             <h3>¡Felicitaciones!</h3>
                             <p>Ya estas cerca de cumplir tu proyecto, en un momento nuestro equipo de asesores se estara
                                 comunicando contigo.</p>
-                            <div class="seguir-explorando">
+                            <div (click)="seguirExplorando()" class="seguir-explorando">
                                 <span>seguir explorando</span>
-                                <samp><i class="fas fa-chevron-down"></i></samp>
+                                <br />
+                                <span><i class="fas fa-chevron-down"></i></span>
                             </div>
                         </div>
                     </div>
@@ -306,7 +311,9 @@
                         class="btn btn-outline-primary">Siguiente</button>
                 </div>
 
-                <div *ngIf="!category" class="divider container"></div>
+                <div class="container-divider">
+                    <div *ngIf="!category" class="divider container"></div>
+                </div>
             </div>
         </div>
 
