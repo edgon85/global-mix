@@ -1,10 +1,13 @@
 @import '../../../../../variables.scss';
 .hero {
+  .cotizador {
+    height: 100vh;
+  }
   .projects {
     // height: 600px;
     // background: red;
     .projects__header {
-      padding-top: 80px; // remover
+      // padding-top: 80px; // remover
       //   margin-left: 20px;
       display: flex;
       flex-direction: row;

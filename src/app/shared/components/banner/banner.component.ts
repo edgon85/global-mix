@@ -10,22 +10,22 @@ export class BannerComponent implements OnInit, AfterViewInit {
   mySwiper: Swiper;
 
   images: string[] = [
-    'assets/images/bg-global-1900.jpg',
+    'assets/images/bg-2.jpg',
     // 'assets/images/bg2-global-1900.jpg',
-    'assets/images/6.jpg',
+    'assets/images/bg-1.jpg',
     // 'assets/images/bg_2.jpg'
   ];
 
   banerData = [
     {
       image: 'assets/images/bg_7.jpg',
-      title: 'Frutas y verduras a domicilio',
-      subtitle: 'Precios accesibles, lo mejor para tí',
+      title: '',
+      subtitle: '',
     },
     {
       image: 'assets/images/bg_5.jpg',
-      title: 'Alimentos 100% frescos',
-      subtitle: 'Precios accesible, lo mejor para tí',
+      title: '',
+      subtitle: '',
     },
   ];
 
