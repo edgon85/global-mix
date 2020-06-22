@@ -4,26 +4,6 @@
   color: #000000 !important;
 }
 
-@mixin contenido {
-  h3 {
-    color: $primary;
-  }
-  .text {
-    display: flex;
-    flex-direction: row;
-    span {
-      i {
-        font-size: 20px;
-        color: #ffd900;
-      }
-    }
-    p {
-      padding: 0 5px;
-      color: $gray;
-    }
-  }
-}
-
 .categorias {
   .header {
     height: 80px;
@@ -162,9 +142,8 @@
                   text-transform: uppercase;
                   font-size: 12px;
                   text-align: center;
-                  @media screen and (min-width: 700px) {
-                    font-size: 16px;
-                  }
+                  font-family: $font-primary;
+
                   th {
                     border: 2px solid #ffd900;
                     padding: 12px 10px;
@@ -196,7 +175,23 @@
           .data_footer {
             grid-area: contentFooter;
             margin-top: 16px;
-            @include contenido();
+            h3 {
+              color: $primary;
+            }
+            .text {
+              display: flex;
+              flex-direction: row;
+              span {
+                i {
+                  font-size: 20px;
+                  color: #ffd900;
+                }
+              }
+              p {
+                padding: 0 5px;
+                color: $gray;
+              }
+            }
           }
 
           @media screen and(min-width: 700px) {
@@ -212,21 +207,149 @@
     }
     /* pavimentos */
     .pavimentos {
-      background-color: #88dd7e;
       .pavimentos_header {
+        background-color: #88dd7e;
         h2 {
           color: #575757;
           font-size: 14px;
           text-transform: uppercase;
-          margin: 8px 0px 0px 0px;
+          margin: 0px;
+          padding-top: 5px;
           font-family: $font-primary;
           @media screen and (min-width: 700px) {
             font-size: 24px;
+            padding-top: 10px;
           }
         }
         span {
           color: $white;
           text-transform: uppercase;
+        }
+      }
+
+      .pavimentos_parrafo {
+        margin-top: 5px;
+        background-color: #88dd7e;
+        @media screen and (min-width: 700px) {
+          margin-top: 10px;
+        }
+        // padding: 10px 0;
+        p {
+          color: $white;
+          font-size: 14px;
+          @media screen and (min-width: 700px) {
+            font-size: 18px;
+            margin: auto;
+          }
+        }
+        @media screen and (min-width: 700px) {
+          padding: 10px 0;
+        }
+      }
+
+      .pavimentos_body {
+        .contenido {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            'contentLeft'
+            'contentTable'
+            'contentFooter';
+
+          .data_left {
+            grid-area: contentLeft;
+            h3 {
+              color: $primary;
+            }
+            .text {
+              display: flex;
+              flex-direction: row;
+              span {
+                i {
+                  font-size: 20px;
+                  color: #88dd7e;
+                }
+              }
+              p {
+                padding: 0 5px;
+                color: $gray;
+              }
+            }
+          }
+
+          .tabla {
+            grid-area: contentTable;
+            .content-table {
+              border-collapse: collapse;
+              width: 100%;
+              thead {
+                tr {
+                  background-color: #c3ffbc;
+                  color: $gray;
+                  text-transform: uppercase;
+                  font-size: 12px;
+                  text-align: center;
+                  font-family: $font-primary;
+
+                  th {
+                    border: 2px solid #88dd7e;
+                    padding: 12px 10px;
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  color: $gray;
+                  td {
+                    border: 2px solid #88dd7e;
+                    padding: 12px 10px;
+                    font-size: 10px;
+                    text-align: center;
+                    @media screen and (min-width: 700px) {
+                      font-size: 14px;
+                    }
+                    ul {
+                      li {
+                        list-style: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .data_footer {
+            grid-area: contentFooter;
+            margin-top: 16px;
+            h3 {
+              color: $primary;
+            }
+            .text {
+              display: flex;
+              flex-direction: row;
+              span {
+                i {
+                  font-size: 20px;
+                  color: #88dd7e;
+                }
+              }
+              p {
+                padding: 0 5px;
+                color: $gray;
+              }
+            }
+          }
+
+          @media screen and(min-width: 700px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+              'contentLeft contentTable'
+              'contentFooter contentFooter';
+          }
+          margin-top: 40px;
         }
       }
     }
