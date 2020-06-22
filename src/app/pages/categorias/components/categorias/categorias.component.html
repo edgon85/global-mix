@@ -1,1 +1,181 @@
-<p>categorias works!</p>
+<div class="categorias">
+    <div class="header">
+
+    </div>
+    <div class="categorias__links">
+        <button #eyelash1 (click)="selectEyelash1()" class="link resistencia">Concretos de resistencia</button>
+        <button #eyelash2 (click)="selectEyelash2()" class="link pavimento">concretos para pavimentos</button>
+        <button #eyelash3 (click)="selectEyelash3()" class="link premesclado">mortero premesclado</button>
+        <button #eyelash4 (click)="selectEyelash4()" class="link general">concreto uso general</button>
+        <button #eyelash5 (click)="selectEyelash5()" class="link vivienda">concretos para vivienda</button>
+
+    </div>
+    <div class="categorias__body">
+        <!-- Control de resistencias aceleradas -->
+        <div *ngIf="resistencia" class="resistencias">
+            <section class="resistencia_header">
+                <div class="container">
+                    <h2>concretos de resistencias <br /> aceleradas</h2>
+                    <span>globalmix</span>
+                </div>
+            </section>
+
+            <section class="resistencia_parrafo">
+                <p class="container">Concreto de uso específico diseñado para alcanzar resistencias máximas a temprana
+                    <br />
+                    edad especificamente en 3 y 7 dias, sin alterar sus características mecánicas ideales.</p>
+            </section>
+
+            <section class="resistencia_body">
+                <div class="contenido container">
+                    <div class="data_left">
+                        <h3>usos</h3>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Este producto se utiliza cuando la estructura requiere que los elementos a fundir
+                                lleguen en pocos días a la resistencia requerida, optimizando los tiempos de entrega en
+                                obra.</p>
+                        </div>
+                        <h3>Ventajas</h3>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Este producto se utiliza cuando la estructura requiere que los elementos a fundir
+                                lleguen en pocos días a la resistencia requerida, optimizando los tiempos de entrega en
+                                obra.</p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Este producto se utiliza cuando la estructura requiere que los elementos a fundir
+                                lleguen en pocos días a la resistencia requerida, optimizando los tiempos de entrega en
+                                obra.</p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Este producto se utiliza cuando la estructura requiere que los elementos a fundir
+                                lleguen en pocos días a la resistencia requerida, optimizando los tiempos de entrega en
+                                obra.</p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Este producto se utiliza cuando la estructura requiere que los elementos a fundir
+                                lleguen en pocos días a la resistencia requerida, optimizando los tiempos de entrega en
+                                obra.</p>
+                        </div>
+
+                    </div>
+                    <div class="tabla">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Normativa</th>
+                                    <th>valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Resistencia
+                                        brindadas
+                                        apicable</td>
+                                    <td>ASTM-C 39</td>
+                                    <td>
+                                        <ul>
+                                            <li>3000 psi</li>
+                                            <li>4000 psi</li>
+                                            <li>5000 psi</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tamaño de agregado</td>
+                                    <td>ASTM-C 33</td>
+                                    <td>
+                                        <ul>
+                                            <li>1 plg. (25mm.)</li>
+                                            <li> 3/8” plg (9.5mm) </li>
+                                            <li> 1 1/2” plg (38mm) </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tipo de colocación</td>
+                                    <td></td>
+                                    <td>Descarga directa o
+                                        uso de bomba.</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiempo de manejabilidad</td>
+                                    <td></td>
+                                    <td>1 - 2 horas bajos condiciones ideales de clima</td>
+                                </tr>
+                                <tr>
+                                    <td>Asentamientos disponibles</td>
+                                    <td></td>
+                                    <td>De entre 6" y 7" de revenimiento</td>
+                                </tr>
+                                <tr>
+                                    <td>Opciones de retardo</td>
+                                    <td></td>
+                                    <td>3 - 4 horas trabajabilidad extendida</td>
+                                </tr>
+                                <tr>
+                                    <td>Opciones de acelerante</td>
+                                    <td></td>
+                                    <td>3 días máxima resistencia <br /> 7 días máxima resistencia</td>
+                                </tr>
+                                <tr>
+                                    <td>Características Especiales</td>
+                                    <td></td>
+                                    <td>Resistencias ideal a temprana edad mediante adición
+                                        aditivo químico.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="data_footer">
+                        <h3>Recomendaciones de uso para mejores resultados</h3>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Realizar el curado del elemento fundido con concreto acelerado ya sea a 3 o 7 días de una
+                                manera más eficaz que si fuera un elemento fundido con concreto convencional ya que
+                                exige que el curado se realice en las primeras horas de apicacion.
+                            </p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Tener la logística de obra bien definida para que la colocación de concreto no tenga
+                                ningún contratiempo al momento de realizar la fundicion.
+                            </p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>Debe de tomarse en cuenta que en superficies de rodamiento se deberá adicionar otro
+                                aditivo para no alterar el acabado final en este tipo de concretos (solicitar mas
+                                informacion al asesor de concreto).
+                            </p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>La compactación y vibración adecuadas son fundamentales al momento de colocar este tipo
+                                de concreto.
+                            </p>
+                        </div>
+                        <div class="text">
+                            <span><i class="fas fa-caret-right"></i></span>
+                            <p>No se recomienda adicionar ningún material a la mezcla para así no alterar sus
+                                características originales de diseño.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- Control de resistencias aceleradas -->
+        <div *ngIf="pavimentos" class="pavimentos">
+            <section class="pavimentos_header container">
+                <h2>CARACTERISTíCAS DEL CONCRETO <br /> PARA PAVIMENTOS</h2>
+                <span>globalmix</span>
+            </section>
+        </div>
+    </div>
+</div>
