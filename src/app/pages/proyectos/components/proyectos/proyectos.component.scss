@@ -1,0 +1,124 @@
+@import '../../../../../variables.scss';
+
+@mixin transition($time) {
+  -webkit-transition: all $time ease-out 0s;
+  -moz-transition: all $time ease-out 0s;
+  -ms-transition: all $time ease-out 0s;
+  -o-transition: all $time ease-out 0s;
+  transition: all $time ease-out 0s;
+}
+
+.proyectos {
+  min-height: 100vh;
+  .portada {
+    height: 80vh;
+    width: 100vw;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9),
+        rgba(255, 255, 255, 0.1)
+      ),
+      url('../../../../../assets/images/fondos/portada-proyectos.jpg');
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title {
+      color: #ffffff;
+      font-family: $font-primary;
+      text-transform: uppercase;
+      h1 {
+        font-size: 1.5rem;
+
+        @media screen and(min-width: 700px) {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  .project-caption {
+    padding: 40px 0px;
+    .single-project {
+      position: relative;
+      .project-img {
+        img {
+          width: 100%;
+        }
+      }
+      .project-cap {
+        padding: 20px 20px;
+        background: #fafafa;
+        @include transition(0.4s);
+        position: relative;
+        h4 {
+          margin: 0;
+          line-height: 1.2;
+          font-size: 25px;
+          font-weight: 700;
+
+          a {
+            color: #0e132a;
+            text-decoration: none;
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+      &:hover {
+        .project-cap {
+        }
+      }
+      // plus Btn
+      .plus-btn {
+        position: absolute;
+        right: 16px;
+        top: -22px;
+        display: inline-block;
+        opacity: 0;
+        visibility: visible;
+        @include transition(0.3s);
+        i {
+          color: #161e46;
+          background: transparent;
+          width: 38px;
+          height: 38px;
+          display: inline-block;
+          line-height: 38px;
+          text-align: center;
+          font-size: 15px;
+          margin-left: 10px;
+          -webkit-transition: all 0.4s ease-out 0s;
+          -moz-transition: all 0.4s ease-out 0s;
+          -ms-transition: all 0.4s ease-out 0s;
+          -o-transition: all 0.4s ease-out 0s;
+          transition: all 0.4s ease-out 0s;
+        }
+      }
+      // Hover Single
+      &:hover {
+        .project-cap {
+          background: #00235b;
+          h4 {
+            a {
+              color: #fff;
+            }
+          }
+        }
+        .plus-btn {
+          opacity: 1;
+          visibility: visible;
+          i {
+            color: #fff;
+            background: $secondary;
+          }
+        }
+      }
+    }
+  }
+}
