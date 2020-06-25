@@ -11,7 +11,7 @@
 .proyectos {
   min-height: 100vh;
   .portada {
-    height: 80vh;
+    height: 50vh;
     width: 100vw;
     background-image: linear-gradient(
         to right,
@@ -38,6 +38,10 @@
           font-size: 3rem;
         }
       }
+    }
+
+    @media screen and(min-width: 700px) {
+      height: 80vh;
     }
   }
 
