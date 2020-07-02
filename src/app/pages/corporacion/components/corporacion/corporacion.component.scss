@@ -1,0 +1,143 @@
+@import '../../../../../variables.scss';
+.corporacion {
+  .portada {
+    height: 50vh;
+    width: 100vw;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9),
+        rgba(255, 255, 255, 0.1)
+      ),
+      url('../../../../../assets/images/fondos/portada-corp.jpg');
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title {
+      color: #ffffff;
+      font-family: $font-primary;
+      text-transform: uppercase;
+      h1 {
+        font-size: 1.5rem;
+
+        @media screen and(min-width: 700px) {
+          font-size: 3rem;
+        }
+      }
+    }
+    @media screen and(min-width: 700px ) {
+      height: 80vh;
+    }
+  }
+
+  .contenido {
+    display: grid;
+    /*  grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr; */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 10px;
+    grid-template-areas:
+      'nosotros'
+      'valores'
+      'mision'
+      'vision';
+    /*     grid-template-areas:
+      'nosotros valores'
+      'mision mision'
+      'vision vision'; */
+
+    padding: 40px 10px;
+
+    @media screen and(min-width: 700px) {
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto 1fr 1fr;
+      grid-template-areas:
+        'nosotros valores'
+        'mision mision'
+        'vision vision';
+
+      padding: 40px 0px;
+    }
+
+    .nosotros {
+      grid-area: nosotros;
+      background-color: #0b2342;
+      color: $white;
+      padding: 10px 20px;
+      h2 {
+        color: $primary;
+        font-size: 1.5rem;
+        font-family: $font-primary;
+        text-align: center;
+        @media screen and(min-width: 700px) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+    .valores {
+      grid-area: valores;
+      background-color: $primary;
+      color: $white;
+      padding: 10px 20px;
+      h2 {
+        color: $white;
+        font-size: 1.5rem;
+        font-family: $font-primary;
+        text-align: center;
+        @media screen and(min-width: 700px) {
+          font-size: 2.5rem;
+        }
+      }
+      .text {
+        display: flex;
+        flex-direction: row;
+        span {
+          i {
+            font-size: 20px;
+            color: $white;
+          }
+        }
+        p {
+          padding: 0 5px;
+          color: $white;
+        }
+      }
+    }
+    .mision {
+      grid-area: mision;
+      background-color: #0b2342;
+      color: $white;
+      padding: 10px 20px;
+      h2 {
+        color: $primary;
+        font-size: 1.5rem;
+        font-family: $font-primary;
+        text-align: center;
+        @media screen and(min-width: 700px) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    .vision {
+      grid-area: vision;
+      background-color: #96bcff;
+      color: $white;
+      padding: 10px 20px;
+      h2 {
+        color: #0b2342;
+        font-size: 1.5rem;
+        font-family: $font-primary;
+        text-align: center;
+        @media screen and(min-width: 700px) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}

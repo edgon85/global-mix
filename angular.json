@@ -22,12 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "./node_modules/swiper/css/swiper.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -45,7 +46,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "globalmix"
+    }
+  },
+  "defaultProject": "globalmix",
+  "cli": {
+    "analytics": "cacb7851-c71d-4b31-b6a9-1e50c614556d"
+  }
 }
