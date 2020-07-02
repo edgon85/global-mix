@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "beastmain-df1c1": {
+      "hosting": {
+        "globalmix": [
+          "beastmain-df1c1"
+        ]
+      }
+    }
+  }
+}
