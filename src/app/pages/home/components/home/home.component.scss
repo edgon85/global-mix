@@ -1,5 +1,20 @@
 @import '../../../../../variables.scss';
 .hero {
+
+  .banner-video{
+    .banner{
+      @media screen and(min-width: 700px){
+        display: none;
+      }
+    }
+
+    .videoBackground{
+      @media screen and(max-width: 700px){
+        display: none;
+      }
+    }
+  }
+
   .cotizador {
     @media screen and (min-width: 700px) {
       padding: 0px 100px;
