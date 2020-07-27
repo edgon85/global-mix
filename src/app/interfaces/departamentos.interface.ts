@@ -29,5 +29,8 @@ export interface UserData {
   nombre: string;
   telefono: string;
   departamento: string;
-  correo?: string;
+  metros3: number;
+  emailCotizacion: string;
+  email?: string;
+  data?: string;
 }

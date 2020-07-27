@@ -6,6 +6,13 @@ import {
 } from '../../../interfaces/departamentos.interface';
 import { Router } from '@angular/router';
 
+import {
+  AngularFirestoreCollection,
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-cotizador',
   templateUrl: './cotizador.component.html',
@@ -55,7 +62,15 @@ export class CotizadorComponent implements OnInit {
     key: Departamento[key],
   }));
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  private submissionForm: AngularFirestoreCollection<any>;
+  private itemDoc: AngularFirestoreDocument<UserData>;
+  item: Observable<UserData>;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private afs: AngularFirestore
+  ) {
     this.inputMtsCubicos();
     this.formUserData();
   }
@@ -238,15 +253,172 @@ export class CotizadorComponent implements OnInit {
       this.formularioData = false;
       this.finishCotizar = true;
 
+      const htmlData = `
+      <section style="padding: 20px">
+
+        <p>Solicitud de cotizacion</p>
+
+        <p>
+        deseo emprender un proyecto de <strong>${
+          this.categoria
+        }</strong> para fundir <strong>${
+        this.metros3
+      } metros cúbicos</strong> de <strong>${this.subcategoria}</strong>
+        </p>
+
+        <table style="width: 500px; border-collapse: collapse;">
+          <thead>
+            <tr style="background: black; color: #fff; text-align: left;">
+              <th style="font-size: 16px;">Datos de contacto</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nombre</td>
+              <td style="text-align: right;">${
+                this.formaUserData.value.nombre
+              }</td>
+            </tr>
+            <tr>
+              <td>Teléfono</td>
+              <td style="text-align: right;">+502 ${
+                this.formaUserData.value.telefono
+              }</td>
+            </tr>
+            <tr>
+              <td>Correo</td>
+              <td style="text-align: right;">${this.formaUserData.value.correo.toLowerCase()}</td>
+            </tr>
+            <tr>
+              <td>Departamento</td>
+              <td style="text-align: right;">${
+                this.formaUserData.value.departamento
+              }</td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <table style="width: 500px; border-collapse: collapse;">
+          <thead>
+            <tr style="background: black; color: #fff; text-align: left;">
+              <th style="font-size: 16px;">Detalles de fundición</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Construcción</td>
+              <td style="text-align: right;">${this.categoria}</td>
+            </tr>
+            <tr>
+              <td>Tipo</td>
+              <td style="text-align: right;">${this.subcategoria}</td>
+            </tr>
+            <tr>
+              <td>Metros cúbicos</td>
+              <td style="text-align: right;">${this.metros3}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      `;
+
+      const htmlDataUser = `
+      <section style="padding: 20px 10px">
+        <p>Estimado(a) ${this.formaUserData.value.nombre}</p>
+        <p>Gracias por comunicarse con Global Mix para cotizar su proyecto de fundición.</p>
+        <p>En unos momentos nuestro equipo de asesores se estara comunicando con usted.</p>
+
+        <p>Información solicitada: </p>
+        <table style="width: 500px; border-collapse: collapse;">
+          <thead>
+            <tr style="background: black; color: #fff; text-align: left;">
+              <th style="font-size: 16px;">Datos de contacto</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nombre</td>
+              <td style="text-align: right;">${
+                this.formaUserData.value.nombre
+              }</td>
+            </tr>
+            <tr>
+              <td>Teléfono</td>
+              <td style="text-align: right;">+502 ${
+                this.formaUserData.value.telefono
+              }</td>
+            </tr>
+            <tr>
+              <td>Correo</td>
+              <td style="text-align: right;">${this.formaUserData.value.correo.toLowerCase()}</td>
+            </tr>
+            <tr>
+              <td>Departamento</td>
+              <td style="text-align: right;">${
+                this.formaUserData.value.departamento
+              }</td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <table style="width: 500px; border-collapse: collapse;">
+          <thead>
+            <tr style="background: black; color: #fff; text-align: left;">
+              <th style="font-size: 16px;">Detalles de fundición</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Construcción</td>
+              <td style="text-align: right;">${this.categoria}</td>
+            </tr>
+            <tr>
+              <td>Tipo</td>
+              <td style="text-align: right;">${this.subcategoria}</td>
+            </tr>
+            <tr>
+              <td>Metros cúbicos</td>
+              <td style="text-align: right;">${this.metros3}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      `;
       const data: UserData = {
         categoria: this.categoria,
         subcaegoria: this.subcategoria,
         nombre: this.formaUserData.value.nombre,
         telefono: this.formaUserData.value.telefono,
         departamento: this.formaUserData.value.departamento,
-        correo: this.formaUserData.value.correo,
+        metros3: this.metros3,
+        emailCotizacion: 'edgon85@gmail.com',
+        email: this.formaUserData.value.correo.toLowerCase(),
+        data: htmlData,
+      };
+
+      const dataUser: UserData = {
+        categoria: this.categoria,
+        subcaegoria: this.subcategoria,
+        nombre: this.formaUserData.value.nombre,
+        telefono: this.formaUserData.value.telefono,
+        departamento: this.formaUserData.value.departamento,
+        metros3: this.metros3,
+        emailCotizacion: 'edgon85@gmail.com',
+        email: this.formaUserData.value.correo.toLowerCase(),
+        data: htmlDataUser,
       };
       console.log(data);
+      this.sendEmailCotizacion(data);
+
+      if (this.formaUserData.value.correo === '') {
+        return;
+      } else {
+        this.sendEmailUser(dataUser);
+      }
     }
   }
 
@@ -316,5 +488,31 @@ export class CotizadorComponent implements OnInit {
     });
 
     this.router.navigateByUrl('/inicio');
+  }
+
+  sendEmailCotizacion(data: any) {
+    const id = Date.now();
+
+    const userRef: AngularFirestoreDocument = this.afs.doc(
+      `cotizaciones/${id}`
+    );
+
+    return userRef
+      .set(data)
+      .then((resp) => console.log('creado satisfactoriamente cotización'))
+      .catch((err) => console.log('ocurrio un error', err));
+  }
+
+  sendEmailUser(data: any) {
+    const id = Date.now();
+
+    const userRef: AngularFirestoreDocument = this.afs.doc(
+      `cotizacionesUsuario/${id}`
+    );
+
+    return userRef
+      .set(data)
+      .then((resp) => console.log('creado satisfactoriamente usuario'))
+      .catch((err) => console.log('ocurrio un error', err));
   }
 }
