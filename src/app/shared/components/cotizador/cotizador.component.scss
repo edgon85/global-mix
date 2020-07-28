@@ -101,6 +101,10 @@
   }
 
   .cotizador__body {
+    background-image: url('../../../../assets/images/fondos/marca-agua.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     .truck-container {
       display: grid;
       grid-template: auto / 1fr 1fr 1fr;
@@ -176,6 +180,10 @@
 
     .cotizador__body-icons {
       // padding: 20px 0px;
+      /*       background-image: url('../../../../assets/images/fondos/marca-agua.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover; */
       .nivel-1 {
         display: grid;
         grid-template-rows: 1fr;
@@ -443,13 +451,16 @@
     }
 
     .formulario {
-      .input {
-        width: 100%;
-        text-align: left !important;
-        @include inputs();
+      .form-row {
+        height: 100px;
+        .input {
+          width: 100%;
+          text-align: left !important;
+          @include inputs();
 
-        @media screen and(min-width: 700px) {
-          width: 80%;
+          @media screen and(min-width: 700px) {
+            width: 80%;
+          }
         }
       }
       @media screen and(min-width: 700px) {
