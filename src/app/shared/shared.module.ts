@@ -7,6 +7,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CotizadorComponent } from './components/cotizador/cotizador.component';
 import { VideoBackgroundComponent } from './components/video-background/video-background.component';
+import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { VideoBackgroundComponent } from './components/video-background/video-ba
     FooterComponent,
     CotizadorComponent,
     VideoBackgroundComponent,
+    WhatsappComponent,
   ],
   imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -22,7 +24,8 @@ import { VideoBackgroundComponent } from './components/video-background/video-ba
     BannerComponent,
     FooterComponent,
     CotizadorComponent,
-    VideoBackgroundComponent
+    VideoBackgroundComponent,
+    WhatsappComponent,
   ],
 })
 export class SharedModule {}

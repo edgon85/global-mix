@@ -1,0 +1,30 @@
+@import '../../../../variables.scss';
+.float {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 150px;
+  height: 40px;
+  bottom: 40px;
+  right: 0px;
+  //background-color: #25d366;
+  background-color: #47a602;
+  color: #fff;
+  //   border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  //   box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+// .my-float {
+//   margin-top: 16px;
+// }
