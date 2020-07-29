@@ -51,7 +51,7 @@ export class ContactoComponent implements OnInit {
       data: `
       <section style="padding: 20px 10px">
       <p>Hola mi nombre es ${this.formaUserData.value.nombre}</p>
-      <p>Necesito informacion de ${this.formaUserData.value.asunto}</p>
+      <p>Necesito información de ${this.formaUserData.value.asunto}</p>
       <p>Mensaje:</p>
       <p>${this.formaUserData.value.mensaje}</p>
 

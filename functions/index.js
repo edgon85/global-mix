@@ -61,6 +61,32 @@ exports.sendEmailCotizacionUser = functions.firestore
       .catch((err) => console.log(err));
   });
 
+exports.sendEmailContacto = functions.firestore
+  .document('contactanos/{docId}')
+  .onCreate((snap, ctx) => {
+    const data = snap.data();
+    let authData = nodemailer.createTransport({
+      host: 'hs24.name.com',
+      port: '465',
+      secure: true,
+      auth: {
+        user: SENDER_EMAIL,
+        pass: SENDER_PASSWORD,
+      },
+    });
+
+    authData
+      .sendMail({
+        from: 'info@edgon.online',
+        to: `edgon85@gmail.com`,
+        subject: `${data.asunto}`,
+        text: `${data.data}`,
+        html: `${data.data}`,
+      })
+      .then((resp) => console.log(`Correo enviado con exito a ${data.email}`))
+      .catch((err) => console.log(err));
+  });
+
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //

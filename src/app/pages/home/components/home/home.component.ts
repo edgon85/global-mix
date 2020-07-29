@@ -51,10 +51,10 @@ export class HomeComponent implements OnInit {
       <section style="padding: 20px 10px">
       <p>Hola mi nombre es ${this.formaUserData.value.nombre}</p>
       <p>Mensaje:</p>
-      <p>${this.formaUserData.value.mensaje}</p>
+      <p>Deseo que un asesor se comunique conmigo</p>
 
       <p>Correo: ${this.formaUserData.value.correo}</p>
-      <p>Correo: ${this.formaUserData.value.telefono}</p>
+      <p>Teléfono: ${this.formaUserData.value.telefono}</p>
       `,
     };
 
