@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,9 +12,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private afs: AngularFirestore) {}
 
   formaUserData: FormGroup;
+
+  datos: object = {
+    nombre: '',
+    correo: '',
+    asunto: '',
+    mensaje: '',
+    telefono: '',
+    data: '',
+  };
 
   ngOnInit() {
     this.formUserData();
@@ -28,6 +41,23 @@ export class HomeComponent implements OnInit {
   }
 
   sendData() {
+    this.datos = {
+      nombre: this.formaUserData.value.nombre,
+      correo: this.formaUserData.value.correo,
+      asunto: 'Contactar a un asesor',
+      mensaje: 'Deseo que un asesor se comunique conmigo',
+      telefono: this.formaUserData.value.telefono,
+      data: `
+      <section style="padding: 20px 10px">
+      <p>Hola mi nombre es ${this.formaUserData.value.nombre}</p>
+      <p>Mensaje:</p>
+      <p>${this.formaUserData.value.mensaje}</p>
+
+      <p>Correo: ${this.formaUserData.value.correo}</p>
+      <p>Correo: ${this.formaUserData.value.telefono}</p>
+      `,
+    };
+
     if (this.formaUserData.invalid) {
       Swal.fire('', 'Llene todos los campos', 'error');
       return;
@@ -37,6 +67,8 @@ export class HomeComponent implements OnInit {
         'En un momento un asesor se comunicara con usted',
         'success'
       );
+
+      this.saveData(this.datos);
       console.log(this.formaUserData.value);
       this.formaUserData.reset({
         nombre: '',
@@ -44,5 +76,16 @@ export class HomeComponent implements OnInit {
         telefono: '',
       });
     }
+  }
+
+  private saveData(data: any) {
+    const id = Date.now();
+
+    const userRef: AngularFirestoreDocument = this.afs.doc(`contactanos/${id}`);
+
+    return userRef
+      .set(data)
+      .then((resp) => console.log('creado satisfactoriamente contactanos'))
+      .catch((err) => console.log('ocurrio un error', err));
   }
 }
