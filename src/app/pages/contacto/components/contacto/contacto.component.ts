@@ -65,7 +65,7 @@ export class ContactoComponent implements OnInit {
     } else {
       Swal.fire(
         '¡Gracias por contactarse!',
-        'En un momento un asesor se comunicara con usted',
+        'En un momento un asesor se comunicará con usted',
         'success'
       );
       this.saveData(this.datos);
