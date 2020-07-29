@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import Swiper from 'swiper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-banner',
@@ -29,7 +30,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -47,5 +48,9 @@ export class BannerComponent implements OnInit, AfterViewInit {
         disableOnInteraction: false,
       },
     });
+  }
+
+  navCotizador() {
+    this.router.navigateByUrl('/cotizador');
   }
 }
