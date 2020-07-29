@@ -42,7 +42,7 @@
             width: 2px;
             background: gold;
             height: auto;
-            margin: 2px 5px -15px 15px;
+            margin: 2px 5px 0px 15px;
           }
           .title {
             // font-size: 12px;
@@ -63,7 +63,7 @@
           }
         }
         .sub-title {
-          margin: 25px 0px 0px 20px;
+          margin: 20px 0px 0px 20px;
           border: 2px solid $secondary;
           padding: 10px;
           font-size: 14px;
@@ -72,6 +72,7 @@
           background: $primary;
           p {
             line-height: 15px;
+            margin-bottom: 0px;
           }
 
           @media screen and (min-width: 700px) {

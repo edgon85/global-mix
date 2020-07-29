@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit, AfterViewInit {
   images: string[] = [
     'assets/images/bg-2.jpg',
     // 'assets/images/bg2-global-1900.jpg',
-    'assets/images/bg-1.jpg',
+    'assets/images/bg-4.jpg',
     // 'assets/images/bg_2.jpg'
   ];
 
