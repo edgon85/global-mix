@@ -87,7 +87,7 @@
                 </div>
                 <div class="card pilar">
                     <div class="image">
-                        <img src="assets/images/aliados/servitec.png" alt="">
+                        <img src="assets/images/aliados/el-pilar.png" alt="">
                     </div>
                     <div class="footer">
                         <a href="#">Descargar certificado <i class="fas fa-download"></i></a>
@@ -102,12 +102,12 @@
         <div class="contenido">
             <div class="formulario">
                 <h3>Consulta con <br /> un asesor de ventas</h3>
-                <form>
-                    <input class="input" type="text" placeholder="Nombre">
-                    <input class="input" type="number" placeholder="Número de teléfono">
-                    <input class="input" type="email" placeholder="Correo electrónico">
+                <form [formGroup]="formaUserData">
+                    <input formControlName="nombre" class="input" type="text" placeholder="Nombre">
+                    <input formControlName="telefono" class="input" type="number" placeholder="Número de teléfono">
+                    <input formControlName="correo" class="input" type="email" placeholder="Correo electrónico">
                     <div>
-                        <button class="button" type="submit">Enviar</button>
+                        <button class="button" (click)="sendData()">Enviar</button>
                     </div>
                 </form>
             </div>
