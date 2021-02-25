@@ -1,323 +1,819 @@
 <div class="cotizador">
-    <div class="cotizador__header">
-        <div class="line"></div>
-        <div>
-            <h2>Cotizador</h2>
-            <p>Cotiza tu proyecto fácil y rápido</p>
+  <div class="wrapper">
+    <div class="contizador__content">
+      <section class="contizador__content--header">
+        <div class="content">
+          <h2>Cotizador</h2>
+          <p>Cotiza tu proyecto fácil y rápido</p>
         </div>
-    </div>
-
-    <div class="cotizador__body">
-
-
+      </section>
+      <section class="contizador__content--body">
         <div class="truck-container">
-            <div class="step1">
-                <!-- <img #step1 class="img-truck" src="assets/images/icons/icon-truck.png" alt=""> -->
-                <img #step1 src="assets/images/icons/icon-truck.png" alt="">
-                <div #line1 class="line"></div>
-            </div>
-            <div class="step2">
-                <img #step2 src="assets/images/icons/icon-truck.png" alt="">
-                <div #line2 class="line"></div>
-            </div>
-            <div class="step3">
-                <img #step3 src="assets/images/icons/icon-truck.png" alt="">
-                <div #line3 class="line"></div>
-            </div>
+          <div class="step1 border-blue">
+            <img #step1 src="assets/images/icons/icon-truck.png" alt="" />
+            <!-- <div #line1 class="line"></div> -->
+          </div>
+          <div class="step2" #borderBottom2>
+            <img
+              #step2
+              class="display-none"
+              src="assets/images/icons/icon-truck.png"
+              alt=""
+            />
+            <!-- <div #line2 class="line"></div> -->
+          </div>
+          <div class="step3" #borderBottom3>
+            <img #step3 src="assets/images/icons/icon-truck.png" alt="" />
+            <!-- <div #line3 class="line"></div> -->
+          </div>
         </div>
-        <div class="title">
-            <p *ngIf="category">¿Qué tipo de proyecto deseas emprender?</p>
-            <p *ngIf="!category && !subcategory && !formularioData && !finishCotizar">¿Qué parte de tu proyecto
-                necesitas
-                cotizar?</p>
-            <p *ngIf="formularioData">Necesitamos alguno de tus datos para ponernos en contacto contigo</p>
+        <div class="icons-content">
+          <div class="icon-wrapper">
+            <div class="title">
+              <h3>¿Qué tipo de proyecto deseas emprender?</h3>
+            </div>
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos pricipales ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-principal" *ngIf="category">
+              <div class="casa">
+                <div class="content" (click)="selectCategory('casas')">
+                  <img
+                    src="assets/images/icons/casas/casa-principal.svg"
+                    alt=""
+                  />
+                  <span>Casas</span>
+                </div>
+              </div>
+              <div class="edificio">
+                <div class="content" (click)="selectCategory('edificios')">
+                  <img
+                    src="assets/images/icons/edificios/edificio-principal.svg"
+                    alt=""
+                  />
+                  <span>Edificios</span>
+                </div>
+              </div>
+              <div class="carretera">
+                <div class="content" (click)="selectCategory('carreteras')">
+                  <img
+                    src="assets/images/icons/carreteras/carretera-principal.svg"
+                    alt=""
+                  />
+                  <span>Carreteras</span>
+                </div>
+              </div>
+              <div class="puente">
+                <div class="content" (click)="selectCategory('puentes')">
+                  <img
+                    src="assets/images/icons/puentes/puente-principal.svg"
+                    alt=""
+                  />
+                  <span>Puentes</span>
+                </div>
+              </div>
+              <div class="bodega">
+                <div class="content" (click)="selectCategory('bodegas')">
+                  <img
+                    src="assets/images/icons/bodegas/bodega-principal.svg"
+                    alt=""
+                  />
+                  <span>bodegas</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos casas ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-casas" *ngIf="casas">
+              <div class="iconos">
+                <div class="casa">
+                  <div class="content">
+                    <img
+                      src="assets/images/icons/casas/casa-principal.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="whats">
+                  <div class="content">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <img src="assets/images/icons/whats-app.png" alt="" />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="terraza">
+                  <div class="content" (click)="selectSubcategory('terrazas')">
+                    <img src="assets/images/icons/casas/terrazas.svg" alt="" />
+                    <span>Terrazas</span>
+                  </div>
+                </div>
+                <div class="columna">
+                  <div class="content" (click)="selectSubcategory('columnas')">
+                    <img src="assets/images/icons/casas/columnas.svg" alt="" />
+                    <span>Columnas</span>
+                  </div>
+                </div>
+                <div class="cimiento">
+                  <div class="content" (click)="selectSubcategory('cimientos')">
+                    <img src="assets/images/icons/casas/cimientos.svg" alt="" />
+                    <span>Cimientos</span>
+                  </div>
+                </div>
+                <div class="zapata">
+                  <div class="content" (click)="selectSubcategory('zapatas')">
+                    <img src="assets/images/icons/casas/zapatas.png" alt="" />
+                    <span>Zapatas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button (click)="buttonBackMainMenu()">Anterior</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos edifcios ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-edificios" *ngIf="edificios">
+              <div class="iconos">
+                <div class="edificio">
+                  <div class="content">
+                    <img
+                      src="assets/images/icons/edificios/edificio-principal.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="whats">
+                  <div class="content">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <img src="assets/images/icons/whats-app.png" alt="" />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cimiento">
+                  <div class="content" (click)="selectSubcategory('cimientos')">
+                    <img
+                      src="assets/images/icons/edificios/cimientos.svg"
+                      alt=""
+                    />
+                    <span>Cimientos</span>
+                  </div>
+                </div>
+                <div class="terraza">
+                  <div class="content" (click)="selectSubcategory('losas-terrazas')">
+                    <img
+                      src="assets/images/icons/edificios/losas-terrazas.svg"
+                      alt=""
+                    />
+                    <span>Losas o Terrazas</span>
+                  </div>
+                </div>
+                <div class="piso-industrial">
+                  <div class="content" (click)="selectSubcategory('piso-industrial')">
+                    <img
+                      src="assets/images/icons/edificios/piso-industrial.svg"
+                      alt=""
+                    />
+                    <span>Piso industrial</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button (click)="buttonBackMainMenu()">Anterior</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos Carreteras ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-carreteras" *ngIf="carreteras">
+              <div class="iconos">
+                <div class="carretera">
+                  <div class="content">
+                    <img
+                      src="assets/images/icons/carreteras/carretera-principal.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="whats">
+                  <div class="content">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <img src="assets/images/icons/whats-app.png" alt="" />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pavimento">
+                  <div class="content" (click)="selectSubcategory('pavimento')">
+                    <img
+                      src="assets/images/icons/carreteras/pavimento.svg"
+                      alt=""
+                    />
+                    <span>Pavimento</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button (click)="buttonBackMainMenu()">Anterior</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos puentes y pasos a desnivel ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-edificios" *ngIf="puentes">
+              <div class="iconos">
+                <div class="edificio">
+                  <div class="content">
+                    <img
+                      src="assets/images/icons/puentes/puente-principal.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="whats">
+                  <div class="content">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <img src="assets/images/icons/whats-app.png" alt="" />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cimiento">
+                  <div class="content" (click)="selectSubcategory('muros')">
+                    <img
+                      src="assets/images/icons/puentes/muros.svg"
+                      alt=""
+                    />
+                    <span>Muros</span>
+                  </div>
+                </div>
+                <div class="terraza">
+                  <div class="content" (click)="selectSubcategory('cimientos')">
+                    <img
+                      src="assets/images/icons/puentes/cimientos.svg"
+                      alt=""
+                    />
+                    <span>Cimientos</span>
+                  </div>
+                </div>
+                <div class="piso-industrial" (click)="selectSubcategory('losas')">
+                  <div class="content">
+                    <img src="assets/images/icons/puentes/losas.svg" alt="" />
+                    <span>Losas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button (click)="buttonBackMainMenu()">Anterior</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Iconos Bodegas ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="icons-carreteras" *ngIf="bodegas">
+              <div class="iconos">
+                <div class="carretera">
+                  <div class="content">
+                    <img
+                      src="assets/images/icons/bodegas/bodega-principal.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="whats">
+                  <div class="content">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <img src="assets/images/icons/whats-app.png" alt="" />
+                      <span>WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pavimento">
+                  <div class="content" (click)="selectSubcategory('piso industrial')">
+                    <img
+                      src="assets/images/icons/bodegas/piso-industrial.svg"
+                      alt=""
+                    />
+                    <span>Piso industrial</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button (click)="buttonBackMainMenu()">Anterior</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Detalle de a cotizar ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="detalle-cotizar" *ngIf="subcategory">
+              <div class="contenido">
+                <div class="content">
+                  <img [src]="subCategoryImage" alt="" />
+                  <span>{{ subCategoryName }}</span>
+                </div>
+
+                <form class="inputs" [formGroup]="formaMtsCubicos">
+                  <div class="controls">
+                    <label>¿De cúantos metros cubicos es tu proyecto?</label>
+                    <input formControlName="metrosCubicos" type="number" placeholder="00" />
+                    <span *ngIf="validarCampo('metrosCubicos')">* Campo es requerido</span>
+                  </div>
+                </form>
+              </div>
+              <div class="buttons">
+                <button (click)="selectCategory(categoria)">Anterior</button>
+                <button (click)="buttonShowForm()">Siguiente</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ Detalle de a cotizar ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="contact-form" *ngIf="formularioData">
+              <div class="contact-form-wrapper">
+                <form class="form" [formGroup]="formaUserData">
+                  <div class="row-form">
+                    <div class="controls">
+                      <input formControlName="nombre" type="text" placeholder="Nombre" />
+                      <span *ngIf="validarCampoUser('nombre')">* Campo requerido</span>
+                    </div>
+                    <div class="controls">
+                      <select formControlName="departamento" name="departamento" id="departamento">
+                        <option *ngFor="let depto of departamento" [value]="depto.key">
+                          {{ depto.key }}
+                        </option>
+                      </select>
+                      <span *ngIf="validarCampoUser('departamento')">* Campo requerido</span>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="controls">
+                      <input formControlName="telefono" type="text" placeholder="Teléfono" />
+                      <span *ngIf="validarCampoUser('telefono')">* Campo requerido</span>
+                    </div>
+                    <div class="controls">
+                      <input formControlName="correo" type="email" placeholder="Correo" />
+                      <span *ngIf="validarCampoUser('correo')">* Campo requerido</span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="buttons">
+                <button (click)="selectSubcategory(subcategoria)">Anterior</button>
+                <button (click)="buttonFinishQuote()">Siguiente</button>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+
+            <!-- <================================================================== > -->
+            <!-- <================ seccion finalizar ======================= > -->
+            <!-- <================================================================== > -->
+            <div class="finalizar" *ngIf="finishCotizar">
+              <div class="finalizar-wrapper">
+                <div class="contenido">
+                  <h2>¡Felicitaciones!</h2>
+                  <p>
+                    Ya estas cerca de cumplir tu proyecto, en un momento nuestro
+                    equipo de asesores se estara comunicando contigo.
+                  </p>
+
+                  <div class="explorar" (click)="seguirExplorando()">
+                    <span>Seguir explorando</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <================================================================== > -->
+          </div>
         </div>
+      </section>
+    </div>
+  </div>
+</div>
 
-        <div class="cotizador__body-icons container" *ngIf="category">
-            <div class="nivel-1">
-                <div class="icon casas" (click)="selectCategory('casas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/casa-principal.svg" alt="">
-                    </div>
-                    <h3>casas</h3>
-                </div>
-                <div class="icon edificios" (click)="selectCategory('edificios')">
-                    <div class=" icon-edificios">
-                        <img src="assets/images/icons/edificios/edificio-principal.svg" alt="">
-                    </div>
-                    <h3>Edificios</h3>
-                </div>
-                <div class="icon carreteras" (click)="selectCategory('carreteras')">
-                    <div class="icon-carreteras">
-                        <img src="assets/images/icons/carreteras/carretera-principal.svg" alt="">
-                    </div>
-                    <h3>Carreteras</h3>
-                </div>
-            </div>
-            <div class="nivel-2">
-                <div class="icon puentes" (click)="selectCategory('puentes')">
-                    <div class="icon-puentes">
-                        <img src="assets/images/icons/puentes/puente-principal.svg" alt="">
-                    </div>
-                    <h3>Puentes y pasos a desnivel</h3>
-                </div>
-                <div class="icon bodegas" (click)="selectCategory('bodegas')">
-                    <div class="icon-bodegas">
-                        <img src="assets/images/icons/bodegas/bodega-principal.svg" alt="">
-                    </div>
-                    <h3>Bodegas industriales</h3>
-                </div>
-            </div>
+<!-- <div class="cotizador">
+  <div class="cotizador__header">
+    <div class="line"></div>
+    <div>
+      <h2>Cotizador</h2>
+      <p>Cotiza tu proyecto fácil y rápido</p>
+    </div>
+  </div>
 
+  <div class="cotizador__body">
+    <div class="truck-container">
+      <div class="step1">
+        <img #step1 src="assets/images/icons/icon-truck.png" alt="" />
+        <div #line1 class="line"></div>
+      </div>
+      <div class="step2">
+        <img #step2 src="assets/images/icons/icon-truck.png" alt="" />
+        <div #line2 class="line"></div>
+      </div>
+      <div class="step3">
+        <img #step3 src="assets/images/icons/icon-truck.png" alt="" />
+        <div #line3 class="line"></div>
+      </div>
+    </div>
+    <div class="title">
+      <p *ngIf="category">¿Qué tipo de proyecto deseas emprender?</p>
+      <p *ngIf="!category && !subcategory && !formularioData && !finishCotizar">
+        ¿Qué parte de tu proyecto necesitas cotizar?
+      </p>
+      <p *ngIf="formularioData">
+        Necesitamos alguno de tus datos para ponernos en contacto contigo
+      </p>
+    </div>
 
-            <!-- <div class="divider"></div> -->
+    <div class="cotizador__body-icons container" *ngIf="category">
+      <div class="nivel-1">
+        <div class="icon casas" (click)="selectCategory('casas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/casa-principal.svg" alt="" />
+          </div>
+          <h3>casas</h3>
         </div>
-
-        <!-- Casas  -->
-        <div class="casas container" *ngIf="casas">
-            <div class="nivel-1">
-                <div class="icon casas">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/casa-principal.svg" alt="">
-                    </div>
-                    <!-- <h3>casas</h3> -->
-                </div>
-            </div>
-            <div class="nivel-2">
-                <div class="icon terraza" (click)="selectSubcategory('terrazas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/terrazas.svg" alt="">
-                    </div>
-                    <h3>Terrazas</h3>
-                </div>
-                <div class="icon columna" (click)="selectSubcategory('columnas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/columnas.svg" alt="">
-                    </div>
-                    <h3>columnas</h3>
-                </div>
-                <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/cimientos.svg" alt="">
-                    </div>
-                    <h3>cimientos</h3>
-                </div>
-                <div class="icon zapata" (click)="selectSubcategory('zapatas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/casas/zapatas.svg" alt="">
-                    </div>
-                    <h3>zapatas</h3>
-                </div>
-            </div>
+        <div class="icon edificios" (click)="selectCategory('edificios')">
+          <div class="icon-edificios">
+            <img
+              src="assets/images/icons/edificios/edificio-principal.svg"
+              alt=""
+            />
+          </div>
+          <h3>Edificios</h3>
         </div>
-
-        <!-- Edificios  -->
-        <div class="edificios container" *ngIf="edificios">
-            <div class="nivel-1">
-                <div class="icon edificio">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/edificios/edificio-principal.svg" alt="">
-                    </div>
-                    <!-- <h3>casas</h3> -->
-                </div>
-            </div>
-            <div class="nivel-2">
-                <div class="icon terraza" (click)="selectSubcategory('losas-terrazas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/edificios/losas-terrazas.svg" alt="">
-                    </div>
-                    <h3>Losas o terrazas</h3>
-                </div>
-                <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/edificios/cimientos.svg" alt="">
-                    </div>
-                    <h3>cimientos</h3>
-                </div>
-                <div class="icon piso-insustrial" (click)="selectSubcategory('piso-industrial')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/edificios/piso-industrial.svg" alt="">
-                    </div>
-                    <h3>piso industrial</h3>
-                </div>
-            </div>
+        <div class="icon carreteras" (click)="selectCategory('carreteras')">
+          <div class="icon-carreteras">
+            <img
+              src="assets/images/icons/carreteras/carretera-principal.svg"
+              alt=""
+            />
+          </div>
+          <h3>Carreteras</h3>
         </div>
-
-        <!-- carreteras  -->
-        <div class="carreteras container" *ngIf="carreteras">
-            <div class="nivel-1">
-                <div class="icon carretera">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/carreteras/carretera-principal.svg" alt="">
-                    </div>
-                    <!-- <h3>casas</h3> -->
-                </div>
-
-                <div class="icon pavimento" (click)="selectSubcategory('pavimento')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/carreteras/pavimento.svg" alt="">
-                    </div>
-                    <h3>Pavimento</h3>
-                </div>
-            </div>
+      </div>
+      <div class="nivel-2">
+        <div class="icon puentes" (click)="selectCategory('puentes')">
+          <div class="icon-puentes">
+            <img
+              src="assets/images/icons/puentes/puente-principal.svg"
+              alt=""
+            />
+          </div>
+          <h3>Puentes y pasos a desnivel</h3>
         </div>
-
-        <!-- puentes  -->
-        <div class="puentes container" *ngIf="puentes">
-            <div class="nivel-1">
-                <div class="icon puente">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/puentes/puente-principal.svg" alt="">
-                    </div>
-                    <!-- <h3>casas</h3> -->
-                </div>
-            </div>
-            <div class="nivel-2">
-                <div class="icon muro" (click)="selectSubcategory('muros')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/puentes/muros.svg" alt="">
-                    </div>
-                    <h3>muros</h3>
-                </div>
-                <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/puentes/cimientos.svg" alt="">
-                    </div>
-                    <h3>cimientos</h3>
-                </div>
-                <div class="icon losa" (click)="selectSubcategory('losas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/puentes/losas.svg" alt="">
-                    </div>
-                    <h3>losa</h3>
-                </div>
-            </div>
+        <div class="icon bodegas" (click)="selectCategory('bodegas')">
+          <div class="icon-bodegas">
+            <img
+              src="assets/images/icons/bodegas/bodega-principal.svg"
+              alt=""
+            />
+          </div>
+          <h3>Bodegas industriales</h3>
         </div>
-
-
-        <!-- Bodegas  -->
-        <div class="bodegas container" *ngIf="bodegas">
-            <div class="nivel-1">
-                <div class="icon bodega">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/bodegas/bodega-principal.svg" alt="">
-                    </div>
-                    <!-- <h3>casas</h3> -->
-                </div>
-
-                <div class="icon cimiento" (click)="selectSubcategory('bodegas')">
-                    <div class="icon-casas">
-                        <img src="assets/images/icons/bodegas/piso-industrial.svg" alt="">
-                    </div>
-                    <h3>Piso industrial</h3>
-                </div>
-            </div>
-        </div>
-
-        <!-- subcategorias  -->
-        <div class="subcategorias container" *ngIf="subcategory">
-            <div class="nivel-1">
-                <div class="icon bodega">
-                    <div class="icon-casas">
-                        <img [src]="subCategoryImage" alt="">
-                    </div>
-                    <h3>{{ subCategoryName }}</h3>
-                </div>
-
-                <div class="nivel-2">
-                    <p>¿De cúantos metros cubicos es tu proyecto?</p>
-                    <div class=" mb-3">
-                        <form [formGroup]="formaMtsCubicos">
-                            <input formControlName="metrosCubicos" type="number" class="input" placeholder="00">
-                            <br />
-                            <small *ngIf="validarCampo('metrosCubicos')" class="text-danger">* Campo es
-                                requerido</small>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- form user -->
-        <div class="formulario container" *ngIf="formularioData">
-            <form [formGroup]="formaUserData" class="">
-                <!-- <div class="form-row mb-3 mb-md-5"> -->
-                <div class="form-row">
-                    <div class="col-12 col-md-6 mb-2 ">
-                        <input formControlName="nombre" type="text" class="input" placeholder="Nombre">
-                        <br />
-                        <small *ngIf="validarCampoUser('nombre')" class="text-danger">Nombre es
-                            requerido</small>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <input formControlName="telefono" type="text" class="input" placeholder="Telefono">
-                        <br />
-                        <small *ngIf="validarCampoUser('telefono')" class="text-danger">Teléfono es
-                            requerido</small>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-12 col-md-6 mb-2">
-                        <select formControlName="departamento" name="departamento" class="input">
-                            <option *ngFor="let depto of departamento" [value]="depto.key">{{ depto.key }}
-                            </option>
-                        </select>
-                        <br />
-                        <small *ngIf="validarCampoUser('departamento')" class="text-danger">Departamento es
-                            requerido</small>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <input formControlName="correo" type="email" class="input" placeholder="Correo electrónico">
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- finalizar cotizador -->
-        <div class="finalizar" *ngIf="finishCotizar">
-            <div class="container">
-                <div class="row">
-                    <div class="contenido col-12">
-                        <h3>¡Felicitaciones!</h3>
-                        <p>Ya estas cerca de cumplir tu proyecto, en un momento nuestro equipo de asesores se estara
-                            comunicando contigo.</p>
-                        <div (click)="seguirExplorando()" class="seguir-explorando">
-                            <span>seguir explorando</span>
-                            <br />
-                            <span><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- botones -->
-        <div class="container mt-5 mb-5">
-            <div class="buttons">
-                <!-- button back categories -->
-                <button *ngIf="!category && !subcategory && !formularioData && !finishCotizar"
-                    (click)="buttonBackMainMenu()" class="btn btn-outline-primary">Anterior</button>
-                <!-- button back sub categories -->
-                <button *ngIf="subcategory" (click)="selectCategory(categoria)"
-                    class="btn btn-outline-primary">Anterior</button>
-                <!-- button next form metros cubicos -->
-                <button *ngIf="subcategory" (click)="buttonShowForm()"
-                    class="btn btn-outline-primary">Siguiente</button>
-                <!-- button back subcategories -->
-                <button *ngIf="formularioData" (click)="selectSubcategory(subcategoria)"
-                    class="btn btn-outline-primary">Anterior</button>
-                <!-- button back subcategories -->
-                <button *ngIf="formularioData" (click)="buttonFinishQuote()"
-                    class="btn btn-outline-primary">Siguiente</button>
-            </div>
-
-            <div class="container-divider">
-                <!-- <div *ngIf="!category" class="divider"></div> -->
-                <div class="divider"></div>
-            </div>
-        </div>
-
+      </div>
 
     </div>
+
+    <!- - Casas  - ->
+    <div class="casas container" *ngIf="casas">
+      <div class="nivel-1">
+        <div class="icon casas">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/casa-principal.svg" alt="" />
+          </div>
+
+        </div>
+      </div>
+      <div class="nivel-2">
+        <div class="icon terraza" (click)="selectSubcategory('terrazas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/terrazas.svg" alt="" />
+          </div>
+          <h3>Terrazas</h3>
+        </div>
+        <div class="icon columna" (click)="selectSubcategory('columnas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/columnas.svg" alt="" />
+          </div>
+          <h3>columnas</h3>
+        </div>
+        <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/cimientos.svg" alt="" />
+          </div>
+          <h3>cimientos</h3>
+        </div>
+        <div class="icon zapata" (click)="selectSubcategory('zapatas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/casas/zapatas.svg" alt="" />
+          </div>
+          <h3>zapatas</h3>
+        </div>
+      </div>
+    </div>
+
+    <!- - Edificios  - ->
+    <div class="edificios container" *ngIf="edificios">
+      <div class="nivel-1">
+        <div class="icon edificio">
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/edificios/edificio-principal.svg"
+              alt=""
+            />
+          </div>
+
+        </div>
+      </div>
+      <div class="nivel-2">
+        <div class="icon terraza" (click)="selectSubcategory('losas-terrazas')">
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/edificios/losas-terrazas.svg"
+              alt=""
+            />
+          </div>
+          <h3>Losas o terrazas</h3>
+        </div>
+        <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/edificios/cimientos.svg" alt="" />
+          </div>
+          <h3>cimientos</h3>
+        </div>
+        <div
+          class="icon piso-insustrial"
+          (click)="selectSubcategory('piso-industrial')"
+        >
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/edificios/piso-industrial.svg"
+              alt=""
+            />
+          </div>
+          <h3>piso industrial</h3>
+        </div>
+      </div>
+    </div>
+
+    <!- - carreteras  - ->
+    <div class="carreteras container" *ngIf="carreteras">
+      <div class="nivel-1">
+        <div class="icon carretera">
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/carreteras/carretera-principal.svg"
+              alt=""
+            />
+          </div>
+
+        </div>
+
+        <div class="icon pavimento" (click)="selectSubcategory('pavimento')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/carreteras/pavimento.svg" alt="" />
+          </div>
+          <h3>Pavimento</h3>
+        </div>
+      </div>
+    </div>
+
+    <!- - puentes  - ->
+    <div class="puentes container" *ngIf="puentes">
+      <div class="nivel-1">
+        <div class="icon puente">
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/puentes/puente-principal.svg"
+              alt=""
+            />
+          </div>
+
+        </div>
+      </div>
+      <div class="nivel-2">
+        <div class="icon muro" (click)="selectSubcategory('muros')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/puentes/muros.svg" alt="" />
+          </div>
+          <h3>muros</h3>
+        </div>
+        <div class="icon cimiento" (click)="selectSubcategory('cimientos')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/puentes/cimientos.svg" alt="" />
+          </div>
+          <h3>cimientos</h3>
+        </div>
+        <div class="icon losa" (click)="selectSubcategory('losas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/puentes/losas.svg" alt="" />
+          </div>
+          <h3>losa</h3>
+        </div>
+      </div>
+    </div>
+
+    <!- - Bodegas  - ->
+    <div class="bodegas container" *ngIf="bodegas">
+      <div class="nivel-1">
+        <div class="icon bodega">
+          <div class="icon-casas">
+            <img
+              src="assets/images/icons/bodegas/bodega-principal.svg"
+              alt=""
+            />
+          </div>
+
+        </div>
+
+        <div class="icon cimiento" (click)="selectSubcategory('bodegas')">
+          <div class="icon-casas">
+            <img src="assets/images/icons/bodegas/piso-industrial.svg" alt="" />
+          </div>
+          <h3>Piso industrial</h3>
+        </div>
+      </div>
+    </div>
+
+    <!- - subcategorias  - ->
+    <div class="subcategorias container" *ngIf="subcategory">
+      <div class="nivel-1">
+        <div class="icon bodega">
+          <div class="icon-casas">
+            <img [src]="subCategoryImage" alt="" />
+          </div>
+          <h3>{{ subCategoryName }}</h3>
+        </div>
+
+        <div class="nivel-2">
+          <p>¿De cúantos metros cubicos es tu proyecto?</p>
+          <div class="mb-3">
+            <form [formGroup]="formaMtsCubicos">
+              <input
+                formControlName="metrosCubicos"
+                type="number"
+                class="input"
+                placeholder="00"
+              />
+              <br />
+              <small *ngIf="validarCampo('metrosCubicos')" class="text-danger"
+                >* Campo es requerido</small
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!- - form user - ->
+    <div class="formulario container" *ngIf="formularioData">
+      <form [formGroup]="formaUserData" class="">
+        <div class="form-row">
+          <div class="col-12 col-md-6 mb-2">
+            <input
+              formControlName="nombre"
+              type="text"
+              class="input"
+              placeholder="Nombre"
+            />
+            <br />
+            <small *ngIf="validarCampoUser('nombre')" class="text-danger"
+              >Nombre es requerido</small
+            >
+          </div>
+          <div class="col-12 col-md-6">
+            <input
+              formControlName="telefono"
+              type="text"
+              class="input"
+              placeholder="Telefono"
+            />
+            <br />
+            <small *ngIf="validarCampoUser('telefono')" class="text-danger"
+              >Teléfono es requerido</small
+            >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-12 col-md-6 mb-2">
+            <select
+              formControlName="departamento"
+              name="departamento"
+              class="input"
+            >
+              <option *ngFor="let depto of departamento" [value]="depto.key">
+                {{ depto.key }}
+              </option>
+            </select>
+            <br />
+            <small *ngIf="validarCampoUser('departamento')" class="text-danger"
+              >Departamento es requerido</small
+            >
+          </div>
+          <div class="col-12 col-md-6">
+            <input
+              formControlName="correo"
+              type="email"
+              class="input"
+              placeholder="Correo electrónico"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!- - finalizar cotizador - ->
+    <div class="finalizar" *ngIf="finishCotizar">
+      <div class="container">
+        <div class="row">
+          <div class="contenido col-12">
+            <h3>¡Felicitaciones!</h3>
+            <p>
+              Ya estas cerca de cumplir tu proyecto, en un momento nuestro
+              equipo de asesores se estara comunicando contigo.
+            </p>
+            <div (click)="seguirExplorando()" class="seguir-explorando">
+              <span>seguir explorando</span>
+              <br />
+              <span><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!- - botones - ->
+    <div class="container mt-5 mb-5">
+      <div class="buttons">
+        <!- - button back categories - - >
+        <button
+          *ngIf="!category && !subcategory && !formularioData && !finishCotizar"
+          (click)="buttonBackMainMenu()"
+          class="btn btn-outline-primary"
+        >
+          Anterior
+        </button>
+        <!- - button back sub categories - ->
+        <button
+          *ngIf="subcategory"
+          (click)="selectCategory(categoria)"
+          class="btn btn-outline-primary"
+        >
+          Anterior
+        </button>
+        <!- - button next form metros cubicos - ->
+        <button
+          *ngIf="subcategory"
+          (click)="buttonShowForm()"
+          class="btn btn-outline-primary"
+        >
+          Siguiente
+        </button>
+        <!- - button back subcategories - ->
+        <button
+          *ngIf="formularioData"
+          (click)="selectSubcategory(subcategoria)"
+          class="btn btn-outline-primary"
+        >
+          Anterior
+        </button>
+        <!- - button back subcategories - ->
+        <button
+          *ngIf="formularioData"
+          (click)="buttonFinishQuote()"
+          class="btn btn-outline-primary"
+        >
+          Siguiente
+        </button>
+      </div>
+
+      <div class="container-divider">
+        <div class="divider"></div>
+      </div>
+    </div>
+  </div>
 </div>
+ -->

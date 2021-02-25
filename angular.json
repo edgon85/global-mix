@@ -28,7 +28,14 @@
               "./node_modules/swiper/css/swiper.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/util",
+              "@firebase/firestore",
+              "@firebase/component"
+            ]
           },
           "configurations": {
             "production": {

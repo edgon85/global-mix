@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {
   Departamento,
   UserData,
@@ -39,14 +39,15 @@ export class CotizadorComponent implements OnInit {
   finishCotizar: boolean = false;
 
   formaMtsCubicos: FormGroup;
+
   formaUserData: FormGroup;
 
   @ViewChild('step1', { static: true }) step1: ElementRef;
   @ViewChild('step2', { static: true }) step2: ElementRef;
   @ViewChild('step3', { static: true }) step3: ElementRef;
-  @ViewChild('line1', { static: true }) line1: ElementRef;
-  @ViewChild('line2', { static: true }) line2: ElementRef;
-  @ViewChild('line3', { static: true }) line3: ElementRef;
+    /*   @ViewChild('line1', { static: true }) line1: ElementRef;*/
+  @ViewChild('borderBottom2', { static: true }) borderBottom2: ElementRef;
+  @ViewChild('borderBottom3', { static: true }) borderBottom3: ElementRef; 
 
   datos: object = {
     categoria: '',
@@ -76,8 +77,8 @@ export class CotizadorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.step2.nativeElement.classList.add('img-truck');
-    this.step3.nativeElement.classList.add('img-truck');
+    this.step2.nativeElement.classList.add('display-none');
+    this.step3.nativeElement.classList.add('display-none');
 
     this.formaUserData.reset({
       nombre: '',
@@ -179,7 +180,7 @@ export class CotizadorComponent implements OnInit {
     this.formularioData = false;
     this.step1.nativeElement.classList.remove('img-truck');
     this.step2.nativeElement.classList.add('img-truck');
-    this.line2.nativeElement.classList.remove('change-line');
+    // this.line2.nativeElement.classList.remove('change-line');
   }
 
   /* ===================================== */
@@ -197,7 +198,7 @@ export class CotizadorComponent implements OnInit {
   }
 
   /* ===================================== */
-  /* boton para regresar a categorias*/
+  /* Paso siguiente al formulario */
   /* ===================================== */
   buttonShowForm() {
     if (this.formaMtsCubicos.invalid) {
@@ -215,9 +216,10 @@ export class CotizadorComponent implements OnInit {
     if (this.formaMtsCubicos.valid) {
       // this.element.nativeElement.classList.add("newclass");
       // this.element.nativeElement.classList.remove("newclass")
-      this.step1.nativeElement.classList.add('img-truck');
-      this.step2.nativeElement.classList.remove('img-truck');
-      this.line2.nativeElement.classList.add('change-line');
+      this.step1.nativeElement.classList.add('display-none');
+      this.borderBottom2.nativeElement.classList.add('border-blue');
+      this.step2.nativeElement.classList.remove('display-none');
+      // this.line2.nativeElement.classList.add('change-line');
 
       this.category = false;
       this.subcategory = false;
@@ -244,9 +246,9 @@ export class CotizadorComponent implements OnInit {
     }
 
     if (this.formaUserData.valid) {
-      this.step2.nativeElement.classList.add('img-truck');
-      this.step3.nativeElement.classList.remove('img-truck');
-      this.line3.nativeElement.classList.add('change-line');
+      this.step2.nativeElement.classList.add('display-none');
+      this.step3.nativeElement.classList.remove('display-none');
+      this.borderBottom3.nativeElement.classList.add('border-blue');
 
       this.category = false;
       this.subcategory = false;
@@ -412,12 +414,12 @@ export class CotizadorComponent implements OnInit {
         data: htmlDataUser,
       };
       console.log(data);
-      this.sendEmailCotizacion(data);
+      // this.sendEmailCotizacion(data);
 
       if (this.formaUserData.value.correo === '') {
         return;
       } else {
-        this.sendEmailUser(dataUser);
+        // this.sendEmailUser(dataUser);
       }
     }
   }
@@ -469,12 +471,12 @@ export class CotizadorComponent implements OnInit {
   seguirExplorando() {
     this.buttonBackMainMenu();
 
-    this.step1.nativeElement.classList.remove('img-truck');
-    this.step2.nativeElement.classList.add('img-truck');
-    this.step3.nativeElement.classList.add('img-truck');
-    this.line1.nativeElement.classList.add('change-line');
-    this.line2.nativeElement.classList.remove('change-line');
-    this.line3.nativeElement.classList.remove('change-line');
+    this.step1.nativeElement.classList.remove('display-none');
+    this.step2.nativeElement.classList.add('display-none');
+    this.step3.nativeElement.classList.add('display-none');
+    /* this.line1.nativeElement.classList.add('change-line'); */
+    this.borderBottom2.nativeElement.classList.remove('border-blue');
+    this.borderBottom3.nativeElement.classList.remove('border-blue');
 
     this.formaMtsCubicos.reset({
       metrosCubicos: '',

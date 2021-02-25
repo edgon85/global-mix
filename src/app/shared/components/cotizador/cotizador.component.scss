@@ -1,6 +1,565 @@
 @import '../../../../variables.scss';
 
-@mixin my_icons {
+.icons-container {
+  padding-block: 3.125rem;
+  background-image: url('../../../../assets/images/icons/marca-agua.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: grid;
+}
+
+.container {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      cursor: pointer;
+      width: 9.375rem;
+      height: 9.375rem;
+    }
+    span {
+      text-transform: uppercase;
+      color: $primary;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
+}
+
+.custom-buttons {
+  border: 1px solid $primary;
+  border-radius: 3px;
+  background: $white;
+  padding-inline: 0.625rem;
+  padding-block: 0.3125rem;
+  // font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  cursor: pointer;
+  color: $primary;
+  &:hover {
+    background: $primary;
+    color: $secondary;
+  }
+}
+
+.hero {
+  border: 2px solid red;
+  height: 200px;
+}
+
+.border-blue {
+  border-bottom: 3px solid $primary !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.cotizador {
+  // border: 1px solid green;
+  // min-height: 100vh;
+  // max-width: 1024px;
+  margin: auto;
+  .wrapper {
+    padding: 0;  // <== Eliminar cuando se quite whapper en scss principal
+    // border: 1px solid yellow;
+    .contizador__content {
+      &--header {
+        .content {
+          display: flex;
+          flex-direction: column;
+          border-left: 2px solid $secondary;
+          padding-inline-start: 0.3rem;
+          h2 {
+            font-size: 3rem;
+            letter-spacing: 1px;
+            color: $gray;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 126%;
+            // margin-bottom: 2px;
+          }
+          p {
+            font-size: 1.1rem;
+            color: $primary;
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+
+      &--body {
+        .truck-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          //   border-bottom: 2px solid $secondary;
+
+          .step1 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 3px solid $secondary;
+            img {
+              width: 9.375rem;
+            }
+          }
+          .step2 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 3px solid $secondary;
+            img {
+              width: 9.375rem;
+            }
+          }
+          .step3 {
+            width: 100%;
+            text-align: center;
+            border-bottom: 3px solid $secondary;
+            img {
+              width: 9.375rem;
+            }
+          }
+        }
+
+        .icons-content {
+          margin-block-start: 1em;
+          .icon-wrapper {
+            padding-inline: 10px;
+
+            .title {
+              margin-block-end: 1em;
+              h3 {
+                font-size: 1.25rem;
+                color: $gray;
+                font-weight: 400;
+              }
+            }
+
+            .icons-principal {
+              @extend .icons-container;
+              border-bottom: 3px solid $secondary;
+              grid-template-columns: 1fr 12.5rem 1fr;
+              grid-template-rows: repeat(2, 1fr);
+              grid-template-areas:
+                'casa edificio carretera'
+                'puente . bodega';
+
+              .casa {
+                grid-area: casa;
+                margin-left: auto;
+                margin-right: 5rem;
+              }
+              .edificio {
+                grid-area: edificio;
+              }
+              .carretera {
+                grid-area: carretera;
+                margin-left: 5rem;
+                margin-right: auto;
+              }
+              .puente {
+                grid-area: puente;
+                margin-left: auto;
+              }
+              .bodega {
+                grid-area: bodega;
+                margin-right: auto;
+              }
+              @extend .container;
+            }
+            .icons-casas {
+              border-bottom: 3px solid $secondary;
+              padding-block-end: 1rem;
+              .iconos {
+                @extend .icons-container;
+
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-areas:
+                  '. casas whats'
+                  'terrazas . columnas'
+                  'cimientos . zapatas';
+
+                .casa {
+                  grid-area: casas;
+                }
+                .terraza {
+                  grid-area: terrazas;
+                }
+                .columna {
+                  grid-area: columnas;
+                }
+                .cimiento {
+                  grid-area: cimientos;
+                }
+                .zapata {
+                  grid-area: zapatas;
+                }
+
+                .whats {
+                  grid-area: whats;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                      font-weight: 400;
+                      color: #4caf50;
+                    }
+                    img {
+                      width: 3.125rem;
+                      height: 3.125rem;
+                    }
+                    span {
+                      color: #4caf50;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
+                @extend .container;
+              }
+
+              .buttons {
+                display: flex;
+                justify-content: space-between;
+                button {
+                  border: 1px solid $primary;
+                  border-radius: 3px;
+                  background: $white;
+                  padding-inline: 10px;
+                  padding-block: 5px;
+                  outline: none;
+                  cursor: pointer;
+                  color: $primary;
+                  &:hover {
+                    background: $primary;
+                    color: $secondary;
+                  }
+                }
+              }
+            }
+            .icons-edificios {
+              border-bottom: 3px solid $secondary;
+              padding-block-end: 1rem;
+              .iconos {
+                @extend .icons-container;
+                //   display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas:
+                  ' . edificio whats '
+                  'cimiento terraza piso-industrial';
+
+                .edificio {
+                  grid-area: edificio;
+                }
+                .cimiento {
+                  grid-area: cimiento;
+                }
+                .terraza {
+                  grid-area: terraza;
+                }
+                .piso-industrial {
+                  grid-area: piso-industrial;
+                }
+
+                .whats {
+                  grid-area: whats;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-right: auto;
+
+                    p {
+                      font-weight: 400;
+                      color: #4caf50;
+                    }
+                    img {
+                      width: 3.125rem;
+                      height: 3.125rem;
+                    }
+                    span {
+                      color: #4caf50;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
+                @extend .container;
+              }
+
+              .buttons {
+                display: flex;
+                justify-content: space-between;
+                button {
+                  @extend .custom-buttons;
+                }
+              }
+            }
+            .icons-carreteras {
+              border-bottom: 3px solid $secondary;
+              padding-block-end: 1rem;
+              .iconos {
+                @extend .icons-container;
+                //   display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas:
+                  ' . carretera whats '
+                  '. pavimento .';
+
+                .carretera {
+                  grid-area: carretera;
+                }
+                .pavimento {
+                  grid-area: pavimento;
+                }
+
+                .whats {
+                  grid-area: whats;
+                  .item {
+                    // width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-right: auto;
+
+                    p {
+                      // margin-block-end: 5px;
+                      font-weight: 400;
+                      color: #4caf50;
+                    }
+                    img {
+                      width: 3.125rem;
+                      height: 3.125rem;
+                    }
+                    span {
+                      color: #4caf50;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
+                @extend .container;
+              }
+
+              .buttons {
+                display: flex;
+                justify-content: space-between;
+                button {
+                  @extend .custom-buttons;
+                }
+              }
+            }
+
+            .detalle-cotizar {
+              background-image: url('../../../../assets/images/icons/marca-agua.png');
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              border-bottom: 3px solid $secondary;
+              padding-block-start: 1rem;
+              padding-block-end: 1rem;
+              .contenido {
+                @extend .container;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .inputs {
+                  margin-block-end: 5rem;
+                  .controls {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    //   width: 50%;
+                    margin-block-start: 1.5rem;
+                    label {
+                      margin-block-end: 1rem;
+                      color: $primary;
+                    }
+                    input[type='number'] {
+                      background-color: transparent;
+                      border: 0;
+                      border-bottom: 2px solid $primary;
+
+                      font-size: 16px;
+                      text-align: center;
+                      outline: none;
+                      padding-block-start: 5px;
+                      &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                      }
+                    }
+                  }
+                }
+                span {
+                  font-size: 12px;
+                  margin-block-start: 5px;
+
+                  color: red;
+                }
+              }
+              .buttons {
+                display: flex;
+                justify-content: space-between;
+                button {
+                  @extend .custom-buttons;
+                }
+              }
+            }
+
+            .contact-form {
+              background-image: url('../../../../assets/images/icons/marca-agua.png');
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              border-bottom: 3px solid $secondary;
+              padding-block-start: 1rem;
+              padding-block-end: 1rem;
+              .contact-form-wrapper {
+                // padding-inline-start: 20px;
+                padding-block-end: 3.125rem;
+                // border: 1px solid red;
+                .form {
+                  margin-block-start: 2rem;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center; 
+                  // justify-content: space-evenly;
+                  // justify-content: space-evenly;
+                  // border: 1px solid red;
+                  padding-bottom: 4rem;
+                  .row-form {
+                    .controls {
+                      padding-block: 1.5rem;
+                      width: 14rem;
+
+                      input {
+                        width: 100%;
+                        background: transparent;
+                        border: none;
+                        border-bottom: 2px solid $primary;
+                        outline: none;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1rem;
+                      }
+
+                      select {
+                        width: 100%;
+                        background: transparent;
+                        border: none;
+                        border-bottom: 2px solid $primary;
+                        outline: none;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1rem;
+                      }
+
+                      span {
+                        font-size: 12px;
+                        color: red;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .buttons {
+                display: flex;
+                justify-content: space-between;
+                button {
+                  @extend .custom-buttons;
+                }
+              }
+            }
+
+            .finalizar {
+              background-image: url('../../../../assets/images/icons/marca-agua.png');
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              border-bottom: 3px solid $secondary;
+              padding-block-start: 1rem;
+              padding-block-end: 1rem;
+              .finalizar-wrapper {
+                // border: 1px solid red;
+                text-align: center;
+                padding-inline: 4.6875rem;
+                padding-block: 6.25rem;
+                .contenido {
+                  h2 {
+                    padding-block-end: 1rem;
+                    font-size: 1.75rem;
+                    color: #888;
+                    font-weight: 500;
+                  }
+
+                  p {
+                    padding-block: 2rem;
+                    padding-inline: 4rem;
+                    color: #888;
+                  }
+
+                  .explorar {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: $primary;
+                    span,
+                    i {
+                      width: 200px;
+                      cursor: pointer;
+                    }
+                    &:hover {
+                      font-size: 1.1rem;
+                      // transition:  0.4s ease 0.4s;
+                      transition: all 0.2s;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .icons-casas {
+    border-bottom: 3px solid $secondary;
+    padding-block-end: 1rem;
+    .iconos {
+      grid-template-columns: repeat(5, 1fr) !important;
+      grid-template-rows: repeat(2, 1fr) !important;
+      grid-template-areas:
+        '. . casas whats .'
+        'terrazas columnas . cimientos zapatas' !important;
+    }
+  }
+
+  .contact-form {
+    .contact-form-wrapper {
+      .form {
+        // display: flex;
+        flex-direction: row !important;
+        justify-content: space-evenly;
+        
+      }
+    }
+  }
+}
+
+/* @mixin my_icons {
   width: 50px;
   text-align: center;
   cursor: pointer;
@@ -53,7 +612,7 @@
 
 .remove-image {
   display: none;
-} */
+} * /
 
 .img-truck {
   display: none;
@@ -183,7 +742,7 @@
       /*       background-image: url('../../../../assets/images/fondos/marca-agua.png');
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: cover; */
+      background-size: cover; * /
       .nivel-1 {
         display: grid;
         grid-template-rows: 1fr;
@@ -506,3 +1065,4 @@
     }
   }
 }
+ */
