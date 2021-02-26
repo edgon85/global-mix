@@ -19,8 +19,15 @@
     .wrapper{
       // border: solid 2px green;
       padding-block: 1rem;
-      padding-inline: 0;
+      padding-inline: 1rem;
     }
   }
 }
 
+@media screen and (min-width: 540px) {
+  .cotizador__body {
+    .wrapper {
+      padding-inline: 0  !important;
+    }
+  }
+}

@@ -14,12 +14,7 @@
             <!-- <div #line1 class="line"></div> -->
           </div>
           <div class="step2" #borderBottom2>
-            <img
-              #step2
-              class="display-none"
-              src="assets/images/icons/icon-truck.png"
-              alt=""
-            />
+            <img #step2 class="display-none" src="assets/images/icons/icon-truck.png" alt="" />
             <!-- <div #line2 class="line"></div> -->
           </div>
           <div class="step3" #borderBottom3>
@@ -30,7 +25,16 @@
         <div class="icons-content">
           <div class="icon-wrapper">
             <div class="title">
-              <h3>¿Qué tipo de proyecto deseas emprender?</h3>
+              <h3 *ngIf="category">¿Qué tipo de proyecto deseas emprender?</h3>
+              <h3 *ngIf="
+                  !category && !subcategory && !formularioData && !finishCotizar
+                ">
+                ¿Qué parte de tu proyecto necesitas cotizar?
+              </h3>
+              <h3 *ngIf="formularioData">
+                Necesitamos alguno de tus datos para ponernos en contacto
+                contigo
+              </h3>
             </div>
 
             <!-- <================================================================== > -->
@@ -39,46 +43,31 @@
             <div class="icons-principal" *ngIf="category">
               <div class="casa">
                 <div class="content" (click)="selectCategory('casas')">
-                  <img
-                    src="assets/images/icons/casas/casa-principal.svg"
-                    alt=""
-                  />
+                  <img src="assets/images/icons/casas/casa-principal.svg" alt="" />
                   <span>Casas</span>
                 </div>
               </div>
               <div class="edificio">
                 <div class="content" (click)="selectCategory('edificios')">
-                  <img
-                    src="assets/images/icons/edificios/edificio-principal.svg"
-                    alt=""
-                  />
+                  <img src="assets/images/icons/edificios/edificio-principal.svg" alt="" />
                   <span>Edificios</span>
                 </div>
               </div>
               <div class="carretera">
                 <div class="content" (click)="selectCategory('carreteras')">
-                  <img
-                    src="assets/images/icons/carreteras/carretera-principal.svg"
-                    alt=""
-                  />
+                  <img src="assets/images/icons/carreteras/carretera-principal.svg" alt="" />
                   <span>Carreteras</span>
                 </div>
               </div>
               <div class="puente">
                 <div class="content" (click)="selectCategory('puentes')">
-                  <img
-                    src="assets/images/icons/puentes/puente-principal.svg"
-                    alt=""
-                  />
+                  <img src="assets/images/icons/puentes/puente-principal.svg" alt="" />
                   <span>Puentes</span>
                 </div>
               </div>
               <div class="bodega">
                 <div class="content" (click)="selectCategory('bodegas')">
-                  <img
-                    src="assets/images/icons/bodegas/bodega-principal.svg"
-                    alt=""
-                  />
+                  <img src="assets/images/icons/bodegas/bodega-principal.svg" alt="" />
                   <span>bodegas</span>
                 </div>
               </div>
@@ -91,14 +80,20 @@
               <div class="iconos">
                 <div class="casa">
                   <div class="content">
-                    <img
-                      src="assets/images/icons/casas/casa-principal.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/casas/casa-principal.svg" alt="" />
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="content" (click)="openPhoneCall()">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>LLamada</span>
+                    </div>
                   </div>
                 </div>
                 <div class="whats">
-                  <div class="content">
+                  <div class="content" (click)="openWhatsApp()">
                     <div class="item">
                       <p>Cotizar por</p>
                       <img src="assets/images/icons/whats-app.png" alt="" />
@@ -144,14 +139,20 @@
               <div class="iconos">
                 <div class="edificio">
                   <div class="content">
-                    <img
-                      src="assets/images/icons/edificios/edificio-principal.png"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/edificios/edificio-principal.png" alt="" />
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="content" (click)="openPhoneCall()">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>LLamada</span>
+                    </div>
                   </div>
                 </div>
                 <div class="whats">
-                  <div class="content">
+                  <div class="content" (click)="openWhatsApp()">
                     <div class="item">
                       <p>Cotizar por</p>
                       <img src="assets/images/icons/whats-app.png" alt="" />
@@ -161,28 +162,19 @@
                 </div>
                 <div class="cimiento">
                   <div class="content" (click)="selectSubcategory('cimientos')">
-                    <img
-                      src="assets/images/icons/edificios/cimientos.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/edificios/cimientos.svg" alt="" />
                     <span>Cimientos</span>
                   </div>
                 </div>
                 <div class="terraza">
                   <div class="content" (click)="selectSubcategory('losas-terrazas')">
-                    <img
-                      src="assets/images/icons/edificios/losas-terrazas.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/edificios/losas-terrazas.svg" alt="" />
                     <span>Losas o Terrazas</span>
                   </div>
                 </div>
                 <div class="piso-industrial">
                   <div class="content" (click)="selectSubcategory('piso-industrial')">
-                    <img
-                      src="assets/images/icons/edificios/piso-industrial.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/edificios/piso-industrial.svg" alt="" />
                     <span>Piso industrial</span>
                   </div>
                 </div>
@@ -200,14 +192,20 @@
               <div class="iconos">
                 <div class="carretera">
                   <div class="content">
-                    <img
-                      src="assets/images/icons/carreteras/carretera-principal.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/carreteras/carretera-principal.svg" alt="" />
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="content" (click)="openPhoneCall()">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>LLamada</span>
+                    </div>
                   </div>
                 </div>
                 <div class="whats">
-                  <div class="content">
+                  <div class="content" (click)="openWhatsApp()">
                     <div class="item">
                       <p>Cotizar por</p>
                       <img src="assets/images/icons/whats-app.png" alt="" />
@@ -217,10 +215,7 @@
                 </div>
                 <div class="pavimento">
                   <div class="content" (click)="selectSubcategory('pavimento')">
-                    <img
-                      src="assets/images/icons/carreteras/pavimento.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/carreteras/pavimento.svg" alt="" />
                     <span>Pavimento</span>
                   </div>
                 </div>
@@ -238,14 +233,20 @@
               <div class="iconos">
                 <div class="edificio">
                   <div class="content">
-                    <img
-                      src="assets/images/icons/puentes/puente-principal.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/puentes/puente-principal.svg" alt="" />
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="content" (click)="openPhoneCall()">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>LLamada</span>
+                    </div>
                   </div>
                 </div>
                 <div class="whats">
-                  <div class="content">
+                  <div class="content" (click)="openWhatsApp()">
                     <div class="item">
                       <p>Cotizar por</p>
                       <img src="assets/images/icons/whats-app.png" alt="" />
@@ -255,19 +256,13 @@
                 </div>
                 <div class="cimiento">
                   <div class="content" (click)="selectSubcategory('muros')">
-                    <img
-                      src="assets/images/icons/puentes/muros.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/puentes/muros.svg" alt="" />
                     <span>Muros</span>
                   </div>
                 </div>
                 <div class="terraza">
                   <div class="content" (click)="selectSubcategory('cimientos')">
-                    <img
-                      src="assets/images/icons/puentes/cimientos.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/puentes/cimientos.svg" alt="" />
                     <span>Cimientos</span>
                   </div>
                 </div>
@@ -291,14 +286,20 @@
               <div class="iconos">
                 <div class="carretera">
                   <div class="content">
-                    <img
-                      src="assets/images/icons/bodegas/bodega-principal.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/bodegas/bodega-principal.svg" alt="" />
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="content" (click)="openPhoneCall()">
+                    <div class="item">
+                      <p>Cotizar por</p>
+                      <i class="fas fa-mobile-alt"></i>
+                      <span>LLamada</span>
+                    </div>
                   </div>
                 </div>
                 <div class="whats">
-                  <div class="content">
+                  <div class="content" (click)="openWhatsApp()">
                     <div class="item">
                       <p>Cotizar por</p>
                       <img src="assets/images/icons/whats-app.png" alt="" />
@@ -308,10 +309,7 @@
                 </div>
                 <div class="pavimento">
                   <div class="content" (click)="selectSubcategory('piso industrial')">
-                    <img
-                      src="assets/images/icons/bodegas/piso-industrial.svg"
-                      alt=""
-                    />
+                    <img src="assets/images/icons/bodegas/piso-industrial.svg" alt="" />
                     <span>Piso industrial</span>
                   </div>
                 </div>
@@ -370,7 +368,8 @@
                   <div class="row-form">
                     <div class="controls">
                       <input formControlName="telefono" type="text" placeholder="Teléfono" />
-                      <span *ngIf="validarCampoUser('telefono')">* Campo requerido</span>
+                      <span *ngIf="validarCampoUser('telefono')">*Teléfono es requerido <br />
+                        8 dígitos por favor</span>
                     </div>
                     <div class="controls">
                       <input formControlName="correo" type="email" placeholder="Correo" />
@@ -380,7 +379,9 @@
                 </form>
               </div>
               <div class="buttons">
-                <button (click)="selectSubcategory(subcategoria)">Anterior</button>
+                <button (click)="selectSubcategory(subcategoria)">
+                  Anterior
+                </button>
                 <button (click)="buttonFinishQuote()">Siguiente</button>
               </div>
             </div>

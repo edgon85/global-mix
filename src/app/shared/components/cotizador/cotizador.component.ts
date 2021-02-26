@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import {
   Departamento,
   UserData,
@@ -45,9 +50,9 @@ export class CotizadorComponent implements OnInit {
   @ViewChild('step1', { static: true }) step1: ElementRef;
   @ViewChild('step2', { static: true }) step2: ElementRef;
   @ViewChild('step3', { static: true }) step3: ElementRef;
-    /*   @ViewChild('line1', { static: true }) line1: ElementRef;*/
+  /*   @ViewChild('line1', { static: true }) line1: ElementRef;*/
   @ViewChild('borderBottom2', { static: true }) borderBottom2: ElementRef;
-  @ViewChild('borderBottom3', { static: true }) borderBottom3: ElementRef; 
+  @ViewChild('borderBottom3', { static: true }) borderBottom3: ElementRef;
 
   datos: object = {
     categoria: '',
@@ -63,8 +68,6 @@ export class CotizadorComponent implements OnInit {
     key: Departamento[key],
   }));
 
-  private submissionForm: AngularFirestoreCollection<any>;
-  private itemDoc: AngularFirestoreDocument<UserData>;
   item: Observable<UserData>;
 
   constructor(
@@ -178,9 +181,13 @@ export class CotizadorComponent implements OnInit {
     }
 
     this.formularioData = false;
-    this.step1.nativeElement.classList.remove('img-truck');
-    this.step2.nativeElement.classList.add('img-truck');
-    // this.line2.nativeElement.classList.remove('change-line');
+    this.step1.nativeElement.classList.remove('display-none');
+    this.step2.nativeElement.classList.add('display-none');
+    this.borderBottom2.nativeElement.classList.remove('border-blue');
+
+    this.formaMtsCubicos.reset({
+      metrosCubicos: '',
+    });
   }
 
   /* ===================================== */
@@ -440,7 +447,15 @@ export class CotizadorComponent implements OnInit {
   formUserData() {
     this.formaUserData = this.fb.group({
       nombre: ['', Validators.required],
-      telefono: ['', Validators.required],
+      telefono: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(new RegExp('^[0-9]*$')),
+          Validators.minLength(8),
+          Validators.maxLength(8),
+        ],
+      ],
       departamento: ['', Validators.required],
       correo: [''],
     });
@@ -516,5 +531,16 @@ export class CotizadorComponent implements OnInit {
       .set(data)
       .then((resp) => console.log('creado satisfactoriamente usuario'))
       .catch((err) => console.log('ocurrio un error', err));
+  }
+
+  // Open link de whatsapp
+  openWhatsApp() {
+    const url = 'https://api.whatsapp.com/send?phone=50256116171';
+    window.open(url, '_blank');
+  }
+  // Open link de whatsapp
+  openPhoneCall() {
+    const url = 'tel:+50256116171';
+    window.open(url, '_blank');
   }
 }

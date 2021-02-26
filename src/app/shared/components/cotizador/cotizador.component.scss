@@ -22,7 +22,8 @@
     span {
       text-transform: uppercase;
       color: $primary;
-      font-weight: 400;
+      font-size: 1rem;
+      font-weight: 500;
       cursor: pointer;
     }
   }
@@ -64,7 +65,7 @@
   // max-width: 1024px;
   margin: auto;
   .wrapper {
-    padding: 0;  // <== Eliminar cuando se quite whapper en scss principal
+    padding: 0; // <== Eliminar cuando se quite whapper en scss principal
     // border: 1px solid yellow;
     .contizador__content {
       &--header {
@@ -178,7 +179,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(3, 1fr);
                 grid-template-areas:
-                  '. casas whats'
+                  'phone casas whats'
                   'terrazas . columnas'
                   'cimientos . zapatas';
 
@@ -210,11 +211,36 @@
                       color: #4caf50;
                     }
                     img {
+                      color: #4caf50;
                       width: 3.125rem;
                       height: 3.125rem;
                     }
                     span {
                       color: #4caf50;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
+
+                .phone {
+                  grid-area: phone;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                      font-weight: 400;
+                      color: $primary;
+                    }
+                    i {
+                      font-size: 40px;
+                      color: $primary;
+                      cursor: pointer;
+                    }
+                    span {
+                      color: $primary;
                       text-transform: none;
                       font-weight: 400;
                     }
@@ -251,7 +277,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
-                  ' . edificio whats '
+                  'phone edificio whats'
                   'cimiento terraza piso-industrial';
 
                 .edificio {
@@ -291,6 +317,31 @@
                     }
                   }
                 }
+
+                .phone {
+                  grid-area: phone;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-left: auto;
+
+                    p {
+                      font-weight: 400;
+                      color: $primary;
+                    }
+                    i {
+                      font-size: 40px;
+                      color: $primary;
+                      cursor: pointer;
+                    }
+                    span {
+                      color: $primary;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
                 @extend .container;
               }
 
@@ -311,7 +362,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
-                  ' . carretera whats '
+                  'phone carretera whats'
                   '. pavimento .';
 
                 .carretera {
@@ -342,6 +393,30 @@
                     }
                     span {
                       color: #4caf50;
+                      text-transform: none;
+                      font-weight: 400;
+                    }
+                  }
+                }
+                .phone {
+                  grid-area: phone;
+                  .item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-left: auto;
+
+                    p {
+                      font-weight: 400;
+                      color: $primary;
+                    }
+                    i {
+                      font-size: 40px;
+                      color: $primary;
+                      cursor: pointer;
+                    }
+                    span {
+                      color: $primary;
                       text-transform: none;
                       font-weight: 400;
                     }
@@ -404,7 +479,6 @@
                 span {
                   font-size: 12px;
                   margin-block-start: 5px;
-
                   color: red;
                 }
               }
@@ -433,7 +507,7 @@
                   margin-block-start: 2rem;
                   display: flex;
                   flex-direction: column;
-                  align-items: center; 
+                  align-items: center;
                   // justify-content: space-evenly;
                   // justify-content: space-evenly;
                   // border: 1px solid red;
@@ -542,7 +616,7 @@
       grid-template-columns: repeat(5, 1fr) !important;
       grid-template-rows: repeat(2, 1fr) !important;
       grid-template-areas:
-        '. . casas whats .'
+        '. phone casas whats .'
         'terrazas columnas . cimientos zapatas' !important;
     }
   }
@@ -553,7 +627,6 @@
         // display: flex;
         flex-direction: row !important;
         justify-content: space-evenly;
-        
       }
     }
   }
