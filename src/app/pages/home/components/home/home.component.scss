@@ -1,59 +1,55 @@
 @import '../../../../../variables.scss';
 .hero {
-
-  .banner-video{
-    .banner{
-      @media screen and(min-width: 700px){
+  min-height: 200vh;
+  .banner-video {
+    .banner {
+      @media screen and(min-width: 700px) {
         display: none;
       }
     }
 
-    .videoBackground{
-      @media screen and(max-width: 700px){
+    .videoBackground {
+      @media screen and(max-width: 700px) {
         display: none;
       }
     }
   }
 
-  .cotizador {
-    @media screen and (min-width: 700px) {
-      padding: 0px 100px;
+  .section-cotizador {
+    .sc-wrapper {
+      padding-inline: 1rem;
+      padding-block: 1rem;
     }
   }
+
   .projects {
+    background: #f5f7f8;
+    padding-block-end: 1rem;
     .projects__header {
-      display: flex;
-      flex-direction: row;
-      .line {
-        width: 2px;
-        background: gold;
-        height: auto;
-        margin: 8px 5px 0px 15px;
-        @media screen and (min-width: 700px) {
-          margin: 0px 5px 0px 15px;
+      max-width: 1115px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-inline: 1rem;
+      // padding-block: 1rem;
+      .content {
+        display: flex;
+        flex-direction: column;
+        border-left: 2px solid $secondary;
+        padding-inline-start: 0.3rem;
+        h2 {
+          font-size: 3rem;
+          letter-spacing: 1px;
+          color: $gray;
+          font-weight: bold;
+          text-transform: uppercase;
+          line-height: 126%;
+          // margin-bottom: 2px;
         }
-      }
-      h2 {
-        font-family: $font-primary;
-        text-transform: uppercase;
-        color: $gray;
-        font-weight: normal;
-        @media screen and (min-width: 700px) {
-          font-size: 40px;
-          line-height: 40px;
+        p {
+          font-size: 1.1rem;
+          color: $primary;
+          margin-bottom: 1.5rem;
         }
-      }
-      p {
-        font-family: $font-secondary;
-        color: $primary;
-        font-size: 12px;
-        @media screen and (min-width: 700px) {
-          font-size: 18px;
-        }
-      }
-
-      @media screen and (min-width: 700px) {
-        padding-left: 105px;
       }
     }
 
@@ -67,9 +63,9 @@
         'item2'
         'item3'
         'item4';
-      margin-top: 16px;
-      padding-right: 10px;
-      padding-left: 10px;
+      margin-top: 1rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
 
       .projects__body-item1 {
         grid-area: item1;
@@ -94,7 +90,7 @@
               display: none;
             }
 
-            @media screen and (min-width: 700px) {
+            @media screen and (min-width: 768px) {
               font-size: 30px;
               padding-left: 0px;
               line-height: 40px;
@@ -103,7 +99,7 @@
               }
             }
           }
-          @media screen and (min-width: 700px) {
+          @media screen and (min-width: 768px) {
             justify-content: flex-start;
             padding-left: 105px;
           }
@@ -134,7 +130,7 @@
       }
 
       // para escritorio
-      @media screen and (min-width: 700px) {
+      @media screen and (min-width: 768px) {
         grid-template-columns: 100px 1fr 1fr;
         grid-template-rows: 100px 1fr 220px;
         column-gap: 5px;
@@ -144,7 +140,7 @@
           '. item2 item3'
           '. item2 item4';
 
-        margin-top: 50px;
+        margin-top: 1rem;
         padding-right: 0px;
         padding-left: 0px;
 
@@ -169,10 +165,25 @@
     }
 
     .projects__ver-mas {
-      padding: 15px 10px;
+      padding: 0.9375rem 0.625rem;
 
       .button {
-        background-color: $primary;
+        border: 1px solid $primary;
+        border-radius: 3px;
+        background: $white;
+        padding-inline: 1rem;
+        padding-block: 0.3125rem;
+        text-decoration: none;
+        font-size: 2rem;
+        font-family: 'Roboto', sans-serif;
+        outline: none;
+        cursor: pointer;
+        color: $primary;
+        &:hover {
+          background: $primary;
+          color: $secondary;
+        }
+        /* background-color: $primary;
         padding: 5px 10px;
         display: inline-block;
         width: 150px;
@@ -181,12 +192,11 @@
         text-decoration: none;
         font-size: 12px;
         font-family: sans-serif;
-        font-weight: 200;
+        font-weight: 200;*/
 
-        @media screen and (min-width: 700px) {
-          font-size: 14px;
-          padding: 10px;
-        }
+        @media screen and (min-width: 760px) {
+          font-size: 1rem;
+        } 
       }
 
       @media screen and (min-width: 700px) {
@@ -196,7 +206,7 @@
     }
   }
 
-  .aliados {
+  /* .aliados {
     .aliados__header {
       padding-top: 80px;
       display: flex;
@@ -381,6 +391,24 @@
         @media screen and(min-width: 700px) {
           width: 25vw;
         }
+      }
+    }
+  } */
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    .section-cotizador {
+      .sc-wrapper {
+        padding-inline: 0;
+        padding-block: 2rem;
+      }
+    }
+
+    .projects {
+      .projects__header {
+        padding-inline: 0;
+        // padding-block-end: 1rem;
       }
     }
   }
