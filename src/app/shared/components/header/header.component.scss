@@ -1,153 +1,187 @@
 @import '../../../../variables.scss';
 
+.open-menu {
+  bottom: 0 !important;
+}
+
 .header {
-  display: flex;
-  padding: 1em 0;
-  justify-content: space-around;
-  background-color: rgb(0, 15, 41);
-  opacity: 0.88;
-  position: fixed;
-  // position: relative;
-  width: 100%;
-  z-index: 9999;
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__logo {
-    align-self: center;
-    width: 30px;
-  }
-  .button {
-    display: none;
-    // height: 20px;
-  }
-  &__button-cotizar {
-    display: none;
-    width: 100px;
-    height: 40px;
-    background: $primary;
-    border: none;
-    color: $secondary;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    outline: none;
-    letter-spacing: 1px;
-    cursor: pointer;
-  }
-  @media screen and (min-width: 700px) {
-    &__content {
-      width: 100%;
+  background-color: rgba(0, 15, 41, 0.88);
+  box-shadow: 0 2px 10px 0 rgba(19, 16, 16, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+
+  .wrapper {
+    width: 90%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    .header__content {
       display: flex;
-      justify-content: space-between;
+      flex-direction: row;
       align-items: center;
-      .button {
-        display: inline;
-        // height: 20px;
+      padding-block: 5px;
+      &--logo {
+        img {
+          display: block;
+          height: 50px;
+          outline: none;
+        }
       }
-    }
-    &__logo {
-      width: 45px;
-    }
-    &__button-cotizar {
-      display: inline;
     }
   }
 }
 
 .menu {
-  display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  &__social {
-    display: none;
-  }
-  &__button {
-    width: 40px;
-    height: 20px;
-    background: url('../../../../assets/images/icons/icon-hamburger.svg');
-    background-repeat: no-repeat;
-    color: $white;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   a {
-    text-decoration: none;
-    color: $white;
-    padding: 0 0.8em;
-  }
-
-  &__checkbox {
     display: none;
-    &:checked {
-      & ~ .menu__button {
-        background: url('../../../../assets/images/icons/icon-close.svg');
-        background-repeat: no-repeat;
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-inline: 10px;
+    padding-block-end: 5px;
+    border-bottom: 2px solid $primary;
+    font-family: 'Roboto', sans-serif;
+    i {
+      border: 1px solid red;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      text-align: center;
+    }
+    &:nth-child(6) {
+      border: 0;
+      img {
+        height: 30px;
       }
-      & ~ .menu {
-        display: block;
-        position: absolute;
-        top: 100%;
-        padding: 1em;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to bottom, $white 0%, transparent 90%);
-        height: 100vh;
-        .menu__item {
-          &:first-of-type a {
-            padding-top: 2em;
-            border-radius: 0.5em 0.5em 0 0;
-          }
-          &:nth-child(5) a {
-            padding-bottom: 1.5em;
-            border-radius: 0 0 0.5em 0.5em;
-          }
-          &:nth-child(6) a {
-            display: none;
-          }
-          &:nth-child(7) a {
-            display: none;
-          }
-          &:nth-child(8) a {
-            display: none;
-          }
-        }
-        a {
-          padding: 0.8em 1em;
-          display: block;
-          text-align: center;
-          background: rgb(0, 15, 41) !important;
-          opacity: 2 !important;
-        }
+    }
+    &:nth-child(7) {
+      border: 0;
+      img {
+        height: 30px;
+      }
+    }
+    &:nth-child(8) {
+      border: 0;
+      img {
+        height: 30px;
       }
     }
   }
+}
 
-  @media screen and (min-width: 700px) {
-    display: flex;
-    // border-bottom: 2px solid $primary;
-    &__item {
-      // border: 1px solid rebeccapurple;
-      // margin-bottom: 3px;
-      text-transform: uppercase;
-      border-bottom: 2px solid $primary;
-      img {
-        width: 25px;
-      }
-    }
-    li.active {
-      border-bottom: 2px solid $secondary;
-    }
+.btn-cotizar {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 4.6875rem;
+  height: 1.875rem;
+  background: $primary;
+  color: $secondary;
+  border: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  font-size: 0.9rem;
+  outline: none;
+}
 
-    &__button {
+.icon-burger {
+  // display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  .line {
+    width: 30px;
+    height: 5px;
+    background: $white;
+    margin: 5px;
+    border-radius: 3px;
+  }
+}
+
+.drop-menu {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  a {
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 1px solid $gray;
+    width: 100%;
+    text-align: center;
+    padding-block: 10px;
+    font-family: 'Roboto', sans-serif;
+    &:nth-child(5) {
+      border: none;
+    }
+    &:nth-child(6) {
       display: none;
     }
-
-    .text-transparent {
-      color: transparent;
-      cursor: none;
+    &:nth-child(7) {
+      display: none;
     }
+    &:nth-child(8) {
+      display: none;
+    }
+  }
+}
+
+.icon-burger-checked {
+  .line {
+    &:nth-child(1) {
+      transform: translateY(10px) rotate(225deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: translateY(-10px) rotate(-225deg);
+    }
+  }
+}
+
+.main {
+  height: 200vh;
+}
+
+.active {
+  border-bottom: 2px solid $secondary !important;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    a {
+      display: inline-block;
+    }
+  }
+
+  .btn-cotizar {
+    display: inline-block;
+  }
+
+  .icon-burger {
+    display: none;
   }
 }
