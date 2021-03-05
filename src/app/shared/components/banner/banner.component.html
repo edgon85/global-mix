@@ -1,56 +1,16 @@
-<!-- Slider main container -->
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
+<div class="banner">
+    <div class="banner-wrapper">
+        <div class="banner-content">
+            <div class="banner-detail">
+                <h1>Un mundo de concreto</h1>
+                <p>Aportamos experiencia y compromiso genuino con la calidad en cada proyecto. <br> no importa el
+                    tamaño, mercado o método de entrega</p>
 
-        <!-- <div class="swiper-slide">
-            <div class="contenido">
-                <div class="img-fondo">
-                    <img src="assets/images/bg-global-1900.jpg" alt="">
-                </div>
-            </div>
-        </div> -->
-        <div class="swiper-slide" [ngStyle]="{'background-image': 'url(' + images[0] + ')'}">
-            <div class="overlay">
-                <div class="contenido">
-                    <div class="content-title">
-                        <div class="line"></div>
-                        <div class="title">
-                            <h1>un mundo <br /> de concreto</h1>
-                        </div>
-                    </div>
-
-                    <div (click)="navCotizador()" class="sub-title">
-                        <p (click)="navCotizador()">
-                            Cotiza tu proyecto <br /> fácil y rápido
-                        </p>
-                    </div>
-
+                <div class="buttons">
+                    <button class="cotizar">Cotizar</button>
+                    <button class="contactanos">Contactanos</button>
                 </div>
             </div>
         </div>
-        <div class="swiper-slide" [ngStyle]="{'background-image': 'url(' + images[1] + ')'}">
-            <div class="overlay overlay-b2">
-                <div class="contenido">
-                    <div class="content-title">
-                        <div class="line"></div>
-                        <div class="title">
-                            <h1>un mundo <br /> de concreto</h1>
-                        </div>
-                    </div>
-
-                    <div (click)="navCotizador()" class="sub-title">
-                        <p (click)="navCotizador()">
-                            Cotiza tu proyecto <br /> fácil y rápido
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--<div class="swiper-slide">Slide 3</div> -->
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
 </div>

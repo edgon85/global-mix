@@ -6,7 +6,7 @@ $primary: #0055ec;
 $secondary: #ffd900;
 $tertiary: #fff6c1;
 
-@font-face {
+/* @font-face {
   font-family: 'league_spartanbold';
   src: url('/assets/fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
     url('/assets/fonts/leaguespartan-bold-webfont.woff') format('woff');
@@ -17,11 +17,12 @@ $tertiary: #fff6c1;
 @font-face {
   font-family: 'microsoft-sans-serif';
   src: url('/assets/fonts/microsoft-sans-serif.ttf') format('woff'),
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-      url('/assets/fonts/microsoft-sans-serif.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}
+    / * Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ * /
+      url('/assets/fonts/microsoft-sans-serif.ttf') format('truetype'); / * Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 * /
+} */
 
 // $font-primary: 'league_spartanbold', Arial, sans-serif;
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'microsoft-sans-serif', Georgia, serif;
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+// $font-secondary: 'microsoft-sans-serif', Georgia, serif;
 // assets/fonts/leaguespartan-bold-webfont.woff2
