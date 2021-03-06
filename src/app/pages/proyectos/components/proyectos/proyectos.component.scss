@@ -10,7 +10,62 @@
 
 .proyectos {
   min-height: 100vh;
-  .portada {
+
+  .portada{
+    background: #f8f8f8;
+    .portada-wrapper{
+      // border: 1px solid green;
+      padding-inline: 1rem;
+      max-width: 1115px;
+      margin: auto;
+      height: 149px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      .content{
+        // border: 1px solid gold;
+        h2 {
+          font-size: 30px;
+          font-weight: 500;
+          font-family: $font-primary;
+          color: #4b4b4b;
+          text-transform: uppercase;
+        }
+      }
+
+    }
+  }
+
+  .proyectos-title{
+    .title-wrapper{
+      // border: 1px solid red;
+      max-width: 1115px;
+      margin: auto;
+      text-align: center;
+      .content{
+        padding-block: 2rem;
+        h3{
+          font-size: 26px;
+          font-family: $font-primary;
+          text-transform: uppercase;
+          position: relative;
+          &:after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: $secondary;
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            right: 50%;
+            margin-block-start: 1rem;
+          }
+        }
+      }
+    }
+  }
+/*   .portada {
     height: 50vh;
     width: 100vw;
     background-image: linear-gradient(
@@ -43,7 +98,7 @@
     @media screen and(min-width: 700px) {
       height: 80vh;
     }
-  }
+  } */
 
   .project-caption {
     padding: 40px 0px;
@@ -122,6 +177,17 @@
             background: $secondary;
           }
         }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .proyectos {
+    .portada {
+      .portada-wrapper {
+        padding-inline: 0;
       }
     }
   }

@@ -5,13 +5,8 @@
 }
 
 .categorias {
-  .header {
-    height: 80px;
-    // border: 1px solid red;
-    @media screen and (min-width: 700px) {
-      height: 100px;
-    }
-  }
+  min-height: 80vh;
+  padding-block: 1rem;
 
   .categorias__links {
     display: flex;
@@ -113,6 +108,10 @@
             grid-area: contentLeft;
             h3 {
               color: $primary;
+              // margin-block-end: 5px;
+              &:nth-of-type(2){
+                margin-block-start: 5px;
+              }
             }
             .text {
               display: flex;

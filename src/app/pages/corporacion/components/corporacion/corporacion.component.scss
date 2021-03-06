@@ -1,36 +1,29 @@
 @import '../../../../../variables.scss';
 .corporacion {
+  min-height: 100vh;
+
   .portada {
-    height: 50vh;
-    width: 100vw;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.9),
-        rgba(255, 255, 255, 0.1)
-      ),
-      url('../../../../../assets/images/fondos/portada-corp.jpg');
+    background: #f8f8f8;
+    padding-inline: 1rem;
+    .portada-wrapper {
+      // border: 1px solid green;
+      max-width: 1115px;
+      margin: auto;
+      height: 149px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
 
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .title {
-      color: #ffffff;
-      font-family: $font-primary;
-      text-transform: uppercase;
-      h1 {
-        font-size: 1.5rem;
-
-        @media screen and(min-width: 700px) {
-          font-size: 3rem;
+      .content {
+        // border: 1px solid gold;
+        h2 {
+          font-size: 30px;
+          font-weight: 500;
+          font-family: $font-primary;
+          color: #4b4b4b;
+          text-transform: uppercase;
         }
       }
-    }
-    @media screen and(min-width: 700px ) {
-      height: 80vh;
     }
   }
 
@@ -137,6 +130,16 @@
         @media screen and(min-width: 700px) {
           font-size: 2.5rem;
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .corporacion {
+    .portada {
+      .portada-wrapper {
+        padding-inline: 0;
       }
     }
   }
