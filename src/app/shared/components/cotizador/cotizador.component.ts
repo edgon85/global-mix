@@ -420,13 +420,13 @@ export class CotizadorComponent implements OnInit {
         email: this.formaUserData.value.correo.toLowerCase(),
         data: htmlDataUser,
       };
-      console.log(data);
-      // this.sendEmailCotizacion(data);
+      // console.log(data);
+      this.sendEmailCotizacion(data);
 
       if (this.formaUserData.value.correo === '') {
         return;
       } else {
-        // this.sendEmailUser(dataUser);
+        this.sendEmailUser(dataUser);
       }
     }
   }
@@ -537,10 +537,12 @@ export class CotizadorComponent implements OnInit {
   openWhatsApp() {
     const url = 'https://api.whatsapp.com/send?phone=50256116171';
     window.open(url, '_blank');
+    window.open().opener = null;
   }
   // Open link de whatsapp
   openPhoneCall() {
     const url = 'tel:+50256116171';
     window.open(url, '_blank');
+    window.open().opener = null;
   }
 }
